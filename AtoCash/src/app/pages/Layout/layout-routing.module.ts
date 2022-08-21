@@ -86,6 +86,17 @@ const routes: Routes = [
           ,canActivate:[RoleGuard]
       },
       {
+        path: "general-ledger",
+        loadChildren: () =>
+          import("../general-ledger/general-ledger.module").then(
+            (m) => m.GeneralLedgerModule
+          ),
+          data:{
+            allowedRoles:['Admin','AtominosAdmin']
+          }
+          ,canActivate:[RoleGuard]
+      },
+      {
         path: "employment-type",
         loadChildren: () =>
           import("../employment-type/employment-type.module").then(
@@ -100,6 +111,17 @@ const routes: Routes = [
         path: "role",
         loadChildren: () =>
           import("../role/role.module").then((m) => m.RoleModule),
+          data:{
+            allowedRoles:['Admin','AtominosAdmin']
+          }
+          ,canActivate:[RoleGuard]
+      },
+      {
+        path: "expense-category",
+        loadChildren: () =>
+          import("../expense-category/expense-category.module").then(
+            (m) => m.ExpenseCategoryModule
+          ),
           data:{
             allowedRoles:['Admin','AtominosAdmin']
           }

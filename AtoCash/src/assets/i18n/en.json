@@ -34,10 +34,12 @@
 		"dashboard": "Dashboard",
 		"costCenter": "Cost Centers",
 		"department": "Departments",
-		"businessarea": "Business Areas",
+		"businessArea": "Business Areas",
+		"generalLedger": "General Ledger",
 		"role": "Job Roles",
 		"employmentType": "Employment Types",
 		"expenseType": "Expense Types",
+		"expenseCategory": "Expense Categories",
 		"expenseStatus": "Expense Status",
 		"cashAdvanceStatus": "Cash Advance",
 		"myInbox": "My Inbox",
@@ -154,10 +156,15 @@
 			"costCenter": "Cost Center",
 			"status": "Status"
 		},
-		"businessarea": {
-			"businessareaCode": "Business Area Code",
-			"businessareaName": "Business Area Name",
+		"businessArea": {
+			"businessAreaCode": "Business Area Code",
+			"businessAreaName": "Business Area Name",
 			"costCenter": "Cost Center",
+			"status": "Status"
+		},
+		"generalLedger": {
+			"generalLedgerAccountNo": "GL Account No",
+			"generalLedgerAccountName": "GL Account Name",
 			"status": "Status"
 		},
 		"role": {
@@ -168,6 +175,10 @@
 		"employmentType": {
 			"employmentTypeName": "Name",
 			"employmentTypeDescription": "Description"
+		},
+		"expenseCategory": {
+			"expenseCategoryName": "Name",
+			"expenseCategoryDesc": "Description"
 		},
 		"expenseType": {
 			"expenseTypeName": "Name",
@@ -315,6 +326,12 @@
 			"costCenter": "Cost Center",
 			"status": "Status"
 		},
+		"generalLedger": {
+			"generalLedgerAccountNo": "General Ledger Account No",
+			"generalLedgerAccountName": "General Ledger Account Name",
+			"costCenter": "Cost Center",
+			"status": "Status"
+		},
 		"role": {
 			"roleCode": "Role Code",
 			"roleName": "Role Name",
@@ -323,6 +340,11 @@
 		"employmentType": {
 			"employmentTypeName": "Name",
 			"employmentTypeDescription": "Description"
+		},
+		"expenseCategory": {
+			"expenseCategoryName": "Name",
+			"expenseCategoryDesc": "Description",
+			"status": "Status"
 		},
 		"expenseType": {
 			"expenseTypeName": "Name",

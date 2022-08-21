@@ -4,12 +4,12 @@ import { Router } from '@angular/router';
 import { BusinessAreaService } from 'src/app/services/businessarea.service';
 
 @Component({
-	selector: 'app-businessArea-list',
-	templateUrl: './businessArea-list.component.html',
-	styleUrls: ['./businessArea-list.component.scss'],
+	selector: 'app-businessarea-list',
+	templateUrl: './businessarea-list.component.html',
+	styleUrls: ['./businessarea-list.component.scss'],
 })
 export class BusinessAreaListComponent implements OnInit {
-	businessAreas: any;
+	BusinessAreas: any;
 	businessAreaHeaders: any = [
 		'tableHeader.businessArea.businessAreaCode',
 		'tableHeader.businessArea.businessAreaName',
@@ -28,7 +28,8 @@ export class BusinessAreaListComponent implements OnInit {
 		this.commonService.loading.next(true);
 		this.service.getBusinessAreas();
 		this.service.BusinessAreas.subscribe((data) => {
-			this.businessAreas = data;
+			this.BusinessAreas = data;
+			console.log(data);
 			this._cdr.detectChanges();
 		});
 	}
@@ -41,6 +42,6 @@ export class BusinessAreaListComponent implements OnInit {
 	};
 
 	editRecord = (event) => {
-		this.router.navigateByUrl(`/businessAreas/action/edit/${event.id}`);
+		this.router.navigateByUrl(`/businessarea/action/edit/${event.id}`);
 	};
 }

@@ -2,48 +2,48 @@
 	<nz-card
 		class="form-layout__card"
 		[nzBordered]="false"
-		[nzTitle]="'heading.costCenter' | translate"
+		[nzTitle]="'heading.expenseCategory'| translate"
 		[nzExtra]="action"
 	>
-		<form nz-form [formGroup]="costCenterForm" (ngSubmit)="submitForm()">
+		<form nz-form [formGroup]="form" (ngSubmit)="submitForm()">
 			<nz-form-item>
-				<nz-form-label [nzSpan]="7" nzRequired nzFor="costCenterCode">{{
-					'form.costCenter.costCenterCode' | translate
+				<nz-form-label [nzSpan]="7" nzRequired nzFor="expenseCategoryName">{{
+					'form.expenseCategory.expenseCategoryName' | translate
 				}}</nz-form-label>
 				<nz-form-control
 					[nzSpan]="15"
 					[nzErrorTip]="'validation.required' | translate"
 				>
 					<input
-						formControlName="costCenterCode"
+						formControlName="expenseCategoryName"
 						type="text"
 						nz-input
-						[placeholder]="'form.costCenter.costCenterCode' | translate"
+						[placeholder]="'form.expenseCategory.expenseCategoryName' | translate"
 						appCapitalize
-						id="costCenterCode"
+						id="expenseCategoryName"
 					/>
 				</nz-form-control>
 			</nz-form-item>
 			<nz-form-item>
-				<nz-form-label [nzSpan]="7" nzRequired nzFor="costCenterCode">{{
-					'form.costCenter.costCenterDescription' | translate
+				<nz-form-label [nzSpan]="7" nzRequired nzFor="expenseCategoryDesc">{{
+					'form.expenseCategory.expenseCategoryDesc' | translate
 				}}</nz-form-label>
 				<nz-form-control
 					[nzSpan]="15"
 					[nzErrorTip]="'validation.required' | translate"
 				>
 					<input
-						formControlName="costCenterDesc"
+						formControlName="expenseCategoryDesc"
 						nz-input
 						type="text"
-						[placeholder]="'form.costCenter.costCenterDescription' | translate"
+						[placeholder]="'form.expenseCategory.expenseCategoryDesc' | translate"
 						appCapitalize
-						id="costCenterDesc"
+						id="expenseCategoryDesc"
 					/>
 				</nz-form-control>
 			</nz-form-item>
 			<nz-form-item>
-				<nz-form-label [nzSpan]="7" nzRequired nzFor="costCenter">{{
+				<nz-form-label [nzSpan]="7" nzRequired nzFor="status">{{
 					'form.status.status' | translate
 				}}</nz-form-label>
 
@@ -68,14 +68,14 @@
 			</nz-form-item>
 			<nz-form-item>
 				<nz-form-control class="action-control">
-					<button nz-button nzType="primary" [disabled]="!costCenterForm.valid">
+					<button nz-button nzType="primary" [disabled]="!form.valid">
 						{{ getButtonLabel() }}
 					</button>
 				</nz-form-control>
 			</nz-form-item>
 		</form>
 		<ng-template #action>
-			<button nz-button routerLink="/cost-center" nzType="primary">
+			<button nz-button routerLink="/expense-category" nzType="primary">
 				<i nz-icon nzType="arrow-left"></i>
 				{{ 'button.back' | translate }}
 			</button>

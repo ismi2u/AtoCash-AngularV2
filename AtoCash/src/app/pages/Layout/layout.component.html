@@ -40,11 +40,31 @@
 				<i nz-icon nzType="apartment" nzTheme="outline"></i>
 				<span>{{ 'heading.department' | translate }}</span>
 			</li>
+
 			<li *ngIf="canOrganize() || canOrganizeAndManage()" nz-menu-item nzMatchRouter routerLink="/businessarea">
 				<i nz-icon nzType="apartment" nzTheme="outline"></i>
-				<span>{{ 'heading.businessarea' | translate }}</span>
+				<span>{{ 'heading.businessArea' | translate }}</span>
 			</li>
-
+			
+			<li
+				*ngIf="canOrganize() || canOrganizeAndManage()"
+				nz-menu-item
+				nzMatchRouter
+				routerLink="/general-ledger"
+			>
+				<i nz-icon nzType="account-book" nzTheme="outline"></i>
+				<span>{{ 'heading.generalLedger' | translate }}</span>
+			</li>
+			
+			<li
+				*ngIf="canOrganize() || canOrganizeAndManage()"
+				nz-menu-item
+				nzMatchRouter
+				routerLink="/expense-category"
+			>
+				<i nz-icon nzType="calculator" nzTheme="outline"></i>
+				<span>{{ 'heading.expenseCategory' | translate }}</span>
+			</li>
 
 			<li
 				*ngIf="canOrganize() || canOrganizeAndManage()"
