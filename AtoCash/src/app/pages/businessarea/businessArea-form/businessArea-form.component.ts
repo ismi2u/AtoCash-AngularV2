@@ -71,7 +71,7 @@ export class BusinessAreaFormComponent implements OnInit {
 					delete response.data.statusType;
 					delete response.data.costCenter;
 					this.form.setValue(response.data);
-					if (this.mode === 'edit') this.form.controls['bizAreaCode'].disable();
+					if (this.mode === 'edit') this.form.controls['businessAreaCode'].disable();
 					this.commonService.loading.next(false);
 				});
 			} else {
@@ -84,8 +84,8 @@ export class BusinessAreaFormComponent implements OnInit {
 		});
 
 		this.form = this.fb.group({
-			bizAreaCode: [null, [Validators.required]],
-			bizAreaName: [null, [Validators.required]],
+			businessAreaCode: [null, [Validators.required]],
+			businessAreaName: [null, [Validators.required]],
 			costCenterId: [null, [Validators.required]],
 			statusTypeId: [null, [Validators.required]],
 		});

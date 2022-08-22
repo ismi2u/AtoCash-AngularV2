@@ -16,12 +16,12 @@
 					[nzErrorTip]="'validation.required' | translate"
 				>
 					<input
-						formControlName="bizAreaCode"
+						formControlName="businessAreaCode"
 						type="text"
 						nz-input
 						[placeholder]="'form.businessArea.businessAreaCode' | translate"
 						appCapitalize
-						id="bizAreaCode"
+						id="businessAreaCode"
 					/>
 				</nz-form-control>
 			</nz-form-item>
@@ -35,12 +35,12 @@
 					[nzErrorTip]="'validation.required' | translate"
 				>
 					<input
-						formControlName="bizAreaName"
+						formControlName="businessAreaName"
 						nz-input
 						type="text"
 						[placeholder]="'form.businessArea.businessAreaName' | translate"
 						appCapitalize
-						id="bizAreaName"
+						id="businessAreaName"
 					/>
 				</nz-form-control>
 			</nz-form-item>
@@ -102,7 +102,7 @@
 			</nz-form-item>
 		</form>
 		<ng-template #action>
-			<button nz-button routerLink="/businessArea/list" nzType="primary">
+			<button nz-button routerLink="/businessarea/list" nzType="primary">
 				<i nz-icon nzType="arrow-left"></i>
 				{{ 'button.back' | translate }}
 			</button>

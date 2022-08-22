@@ -154,6 +154,34 @@
 				{{ data.statusType }}
 			</td>
 
+			<!-- BusinessArea -->
+			<td *ngIf="data.businessAreaCode && formName == 'businessarea'">
+				{{ data.businessAreaCode }}
+			</td>
+			<td *ngIf="data.businessAreaName && formName == 'businessarea'">
+				{{ data.businessAreaName }}
+			</td>
+			<td *ngIf="data.costCenter && formName == 'businessarea'">
+				{{ data.costCenter }}
+			</td>
+			<td *ngIf="data.statusType && formName == 'businessarea'">
+				{{ data.statusType }}
+			</td>
+
+			<!-- GeneralLedger -->
+			<td *ngIf="data.generalLedgerAccountNo && formName == 'generalLedger'">
+				{{ data.generalLedgerAccountNo }}
+			</td>
+			<td *ngIf="data.generalLedgerAccountName && formName == 'generalLedger'">
+				{{ data.generalLedgerAccountName }}
+			</td>
+			<td *ngIf="data.costCenter && formName == 'generalLedger'">
+				{{ data.costCenter }}
+			</td>
+			<td *ngIf="data.statusType && formName == 'generalLedger'">
+				{{ data.statusType }}
+			</td>
+
 			<!-- User Roles -->
 			<td *ngIf="data.roleCode && formName == 'role'">{{ data.roleCode }}</td>
 			<td *ngIf="data.roleName && formName == 'role'">{{ data.roleName }}</td>
@@ -167,6 +195,17 @@
 			</td>
 			<td *ngIf="data.empJobTypeDesc && formName == 'employeeType'">
 				{{ data.empJobTypeDesc }}
+			</td>
+
+			<!-- Expense Categories -->
+			<td *ngIf="data.expenseCategoryName && formName == 'expenseCategory'">
+				{{ data.expenseCategoryName }}
+			</td>
+			<td *ngIf="data.expenseCategoryDesc && formName == 'expenseCategory'">
+				{{ data.expenseCategoryDesc }}
+			</td>
+			<td *ngIf="data.statusType && formName == 'expenseCategory'">
+				{{ data.statusType }}
 			</td>
 
 			<!-- Expense Types -->

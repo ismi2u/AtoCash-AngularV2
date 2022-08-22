@@ -5,15 +5,15 @@
 >
 	<app-table
 		[tableHeaders]="businessAreaHeaders"
-		[tableData]="businessAreas"
+		[tableData]="BusinessAreas"
 		(onDelete)="deleteRecord($event)"
 		(onEdit)="editRecord($event)"
-		[formName]="'businessArea'"
+		[formName]="'businessarea'"
 	></app-table>
 </nz-card>
 
 <ng-template #action>
-	<button nz-button routerLink="/businessAreas/action/add" nzType="primary">
+	<button nz-button routerLink="/businessarea/action/add" nzType="primary">
 		{{ 'button.create' | translate }}
 	</button>
 </ng-template>
