@@ -15,6 +15,7 @@ export class RoleFormComponent implements OnInit {
 	recordId: any;
 	mode: any = 'add';
 	costCenterList = [];
+	isStoreRole=true;
 
 	constructor(
 		private fb: FormBuilder,
@@ -75,6 +76,7 @@ export class RoleFormComponent implements OnInit {
 			roleCode: [null, [Validators.required]],
 			roleName: [null, [Validators.required]],
 			maxPettyCashAllowed: [null, [Validators.required]],
+			isStoreRole: [null, [Validators.required]],
 		});
 	}
 }

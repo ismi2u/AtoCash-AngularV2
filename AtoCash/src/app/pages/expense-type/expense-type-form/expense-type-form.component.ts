@@ -5,6 +5,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { ExpenseTypesService } from 'src/app/services/expense-types.service';
 import { StatusService } from 'src/app/services/status.service';
+import { ExpenseCategoriesService } from 'src/app/services/expense-categories.service';
+import { GeneralLedgerService } from 'src/app/services/generalledger.service';
 
 @Component({
 	selector: 'app-expense-type-form',
@@ -15,6 +17,8 @@ export class ExpenseTypeFormComponent implements OnInit {
 	form!: FormGroup;
 	recordId: any;
 	mode: any = 'add';
+	expenseCategoriesList = [];
+	generalLedgerList = [];
 	status = [];
 
 	constructor(
@@ -25,6 +29,8 @@ export class ExpenseTypeFormComponent implements OnInit {
 		private translate: TranslateService,
 		private statusService: StatusService,
 		private commonService: CommonService,
+		private expenseCategoriesService: ExpenseCategoriesService,
+		private generalLedgerService: GeneralLedgerService,
 	) {}
 
 	getButtonLabel = () => {
@@ -75,7 +81,18 @@ export class ExpenseTypeFormComponent implements OnInit {
 				this.commonService.loading.next(false);
 			}
 		});
+
+		this.expenseCategoriesService.getExpenseCategoriesList().subscribe((response: any) => {
+			this.expenseCategoriesList = response.data;
+		});
+
+		this.generalLedgerService.getGeneralLedgerList().subscribe((response: any) => {
+			this.generalLedgerList = response.data;
+		});
+
 		this.form = this.fb.group({
+			expenseCategoryId: [null, [Validators.required]],
+			generalLedgerId: [null, [Validators.required]],
 			expenseTypeName: [null, [Validators.required]],
 			expenseTypeDesc: [null, [Validators.required]],
 			statusTypeId: [null, [Validators.required]],

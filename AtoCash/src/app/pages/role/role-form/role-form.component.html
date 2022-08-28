@@ -63,6 +63,25 @@
 			</nz-form-item>
 
 			<nz-form-item>
+				<nz-form-label [nzSpan]="7" nzRequired nzFor="isStoreRole">{{
+					'form.role.isStoreRole' | translate
+				}}</nz-form-label>
+
+				<nz-form-control
+					[nzSpan]="15"
+					[nzErrorTip]="'validation.required' | translate"
+				>
+				
+				<nz-switch
+				nzSize="small"
+				[(ngModel)]="isStoreRole"
+				formControlName="isStoreRole" id="isStoreRole"></nz-switch>
+
+				 
+				</nz-form-control>
+			</nz-form-item>
+
+			<nz-form-item>
 				<nz-form-control class="action-control">
 					<button nz-button nzType="primary" [disabled]="!form.valid">
 						{{ getButtonLabel() }}
