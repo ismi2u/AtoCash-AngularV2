@@ -170,7 +170,8 @@
 		"role": {
 			"roleCode": "Role Code",
 			"roleName": "Role Name",
-			"maxAmount": "Max.Amount"
+			"maxAmount": "Max.Amount",
+			"isStoreRole":"Is Store Role"
 		},
 		"employmentType": {
 			"employmentTypeName": "Name",
@@ -181,6 +182,8 @@
 			"expenseCategoryDesc": "Description"
 		},
 		"expenseType": {
+			"expenseCategory": "Expense Category",
+			"generalLedger": "General Ledger",
 			"expenseTypeName": "Name",
 			"expenseTypeDescription": "Description"
 		},

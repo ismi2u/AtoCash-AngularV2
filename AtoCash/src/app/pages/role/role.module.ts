@@ -1,7 +1,7 @@
 import { AntdModule } from './../../components/antd.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule ,ReactiveFormsModule } from '@angular/forms';
 import { RoleRoutingModule } from './role-routing.module';
 import { RoleComponent } from './role.component';
 import { RolelistComponent } from './role-list/role-list.component';
@@ -13,6 +13,7 @@ import { SharedModule } from 'src/app/components/shared.module';
   declarations: [RoleComponent, RolelistComponent,  RoleFormComponent],
   imports: [
     CommonModule,
+    FormsModule,
     RoleRoutingModule,
     ReactiveFormsModule,
     SharedModule,
