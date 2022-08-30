@@ -188,6 +188,9 @@
 			<td *ngIf="data.maxPettyCashAllowed && formName == 'role'">
 				{{ data.maxPettyCashAllowed }}
 			</td>
+			<td *ngIf="data.isStoreRole && formName == 'role'">
+				{{ data.isStoreRole===true ? "Yes" : "No" }}
+			</td>
 
 			<!-- Employment Types -->
 			<td *ngIf="data.empJobTypeCode && formName == 'employeeType'">

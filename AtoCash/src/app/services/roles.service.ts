@@ -20,7 +20,10 @@ export class RolesService {
      });
     }
   
-  getJobRoleList = () => this.http.get(`${this.commonService.getApi()}/api/JobRoles/JobRolesForDropdown`);
+  getJobRoleList = () => this.http.get(`${this.commonService.getApi()}/api/JobRoles/JobRolesQuery`);
+ 
+  getJobRoleListSpecific = (isStoreRole:any) => this.http.get(`${this.commonService.getApi()}/api/JobRoles/JobRolesQuery/${isStoreRole}`);
+ 
 
   getJobRoleById = (id:any) => this.http.get(`${this.commonService.getApi()}/api/JobRoles/GetRole/${id}`);
 

@@ -10,7 +10,10 @@ import { DepartmentService } from 'src/app/services/department.service';
 import { EmployeeTypesService } from 'src/app/services/employee-types.service';
 import { EmployeeService } from 'src/app/services/employee.service';
 import { RolesService } from 'src/app/services/roles.service';
-import { StatusService } from 'src/app/services/status.service';
+import { BusinessAreaService } from 'src/app/services/businessarea.service';
+import { StatusService } from 'src/app/services/status.service'; 
+
+
 @Component({
 	selector: 'app-employee-form',
 	templateUrl: './employee-form.component.html',
@@ -26,8 +29,10 @@ export class EmployeeFormComponent implements OnInit {
 	departments = [];
 	nationalities = [];
 	dojValidation;
+	businessAreas=[];
 	status = [];
 	currencies = [];
+	
 
 	constructor(
 		private fb: FormBuilder,
@@ -41,7 +46,8 @@ export class EmployeeFormComponent implements OnInit {
 		private translate: TranslateService,
 		private statusService: StatusService,
 		private currencyService: CurrencyService,
-		private commonService: CommonService,
+		private commonService: CommonService, 
+		private businessAreaService: BusinessAreaService,
 	) {}
 
 	getButtonLabel = () => {
@@ -98,9 +104,9 @@ export class EmployeeFormComponent implements OnInit {
 				this.groups = response.data;
 			});
 
-		this.rolesService.getJobRoleList().subscribe((response: any) => {
+		this.rolesService.getJobRoleListSpecific(false).subscribe((response: any) => {
 			this.roles = response.data;
-			this.employeeTypesService.getEmploymentTypes();
+			// this.employeeTypesService.getEmploymentTypes();
 		});
 
 		this.employeeTypesService
@@ -112,6 +118,10 @@ export class EmployeeFormComponent implements OnInit {
 		this.departmentService.getDepartmentList().subscribe((response: any) => {
 			this.departments = response.data;
 		});
+
+		this.businessAreaService.getBusinessAreaList().subscribe((response: any) => {
+			this.businessAreas = response.data;
+		}); 
 
 		this.snapshot.params.subscribe((param) => {
 			if (param.type === 'edit') {
@@ -187,6 +197,12 @@ export class EmployeeFormComponent implements OnInit {
 			departmentId: [null, [Validators.required]],
 			roleId: [null, [Validators.required]],
 			approvalGroupId: [null, [Validators.required]],
+			businessAreaApprovalGroupId:[null,[]],
+			businessAreaApprovalGroup:[null,[]],
+			businessAreaRoleId:[null,[]],
+			businessAreaRoleName:[null,[]],
+			businessAreaId:[null,[]],
+			businessAreaName:[null,[]],
 			statusTypeId: [null, [Validators.required]],
 			currencyTypeId: [null, [Validators.required]],
 		});

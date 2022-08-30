@@ -215,10 +215,14 @@
 			"passportNo": "Passport.No",
 			"taxNumber": "Tax.No",
 			"dob": "Date of Birth",
-			"approvalGroup": "Approval Group",
-			"role": "Job Role",
+			"approvalGroup": "Department Approval Group",
+			"role": "Department Job Role",
+			"businessAreaApprovalGroup": "Business Area AG ",
+			"businessAreaApprovalGroupP": "Business Area Area Group ",
+			"businessAreaRoleName": "Business Area Role",
 			"employmentType": "Employment Type",
 			"department": "Department",
+			"businessArea": "Business Area",
 			"businessarea": "Business Area",
 			"gender": "Gender",
 			"email": "Email",
@@ -338,7 +342,8 @@
 		"role": {
 			"roleCode": "Role Code",
 			"roleName": "Role Name",
-			"maxAmount": "Max.Amount"
+			"maxAmount": "Max.Amount",
+			"isStoreRole":"Is Store Role"
 		},
 		"employmentType": {
 			"employmentTypeName": "Name",
