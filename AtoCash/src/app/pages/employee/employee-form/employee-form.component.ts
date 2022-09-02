@@ -137,6 +137,7 @@ export class EmployeeFormComponent implements OnInit {
 						delete response.data.jobRole;
 						delete response.data.approvalGroup;
 						delete response.data.statusType;
+						delete response.data.businessArea;
 						this.form.setValue(response.data);
 						this.commonService.loading.next(false);
 					});
@@ -202,7 +203,6 @@ export class EmployeeFormComponent implements OnInit {
 			businessAreaRoleId:[null,[]],
 			businessAreaRoleName:[null,[]],
 			businessAreaId:[null,[]],
-			businessAreaName:[null,[]],
 			statusTypeId: [null, [Validators.required]],
 			currencyTypeId: [null, [Validators.required]],
 		});
