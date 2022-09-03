@@ -212,6 +212,15 @@
 			</td>
 
 			<!-- Expense Types -->
+			<td *ngIf="data.expenseCategoryName && formName == 'expense'">
+				{{ data.expenseCategoryName }}
+			</td>
+			<td *ngIf="data.generalLedgerAccountNo && formName == 'expense'">
+				{{ data.generalLedgerAccountNo }}
+			</td>
+			<td *ngIf="data.generalLedgerAccountName && formName == 'expense'">
+				{{ data.generalLedgerAccountName }}
+			</td>
 			<td *ngIf="data.expenseTypeName && formName == 'expense'">
 				{{ data.expenseTypeName }}
 			</td>

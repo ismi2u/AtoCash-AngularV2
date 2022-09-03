@@ -328,6 +328,50 @@
       </nz-form-item>
 
       <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzRequired nzFor="department">{{
+          "form.employee.department" | translate
+        }}</nz-form-label>
+  
+        <nz-form-control [nzSpan]="15" [nzErrorTip]="'validation.required' |translate ">
+          <nz-select
+            nzShowSearch
+            nzAllowClear
+            id="department"
+            formControlName="departmentId"
+            [nzPlaceHolder]="'form.employee.department' | translate"
+          >
+            <nz-option
+              *ngFor="let option of departments"
+              [nzValue]="option.id"
+              [nzLabel]="option.deptDesc"
+            ></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+  
+      <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzRequired nzFor="businessAreaId">{{
+          "form.employee.businessArea" | translate
+        }}</nz-form-label>
+      
+        <nz-form-control [nzSpan]="15" [nzErrorTip]="'validation.required' |translate ">
+          <nz-select
+          nzShowSearch
+          nzAllowClear
+          id="businessAreaId"
+          formControlName="businessAreaId"
+          [nzPlaceHolder]="'form.employee.businessArea' | translate"
+          >
+          <nz-option
+            *ngFor="let option of businessAreas"
+            [nzValue]="option.id"
+            [nzLabel]="option.businessAreaName"
+          ></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+      
+      <nz-form-item>
         <nz-form-label [nzSpan]="7" nzRequired nzFor="approvalGroup">{{
           "form.employee.approvalGroup" | translate
         }}</nz-form-label>
@@ -394,6 +438,28 @@
     </nz-form-item>
 
     <nz-form-item>
+      <nz-form-label [nzSpan]="7" nzRequired nzFor="businessAreaRoleId">{{
+        "form.employee.businessAreaRoleName" | translate
+      }}</nz-form-label>
+
+      <nz-form-control [nzSpan]="15" [nzErrorTip]="'validation.required' |translate ">
+        <nz-select
+          nzShowSearch
+          nzAllowClear
+          id="businessAreaRoleId"
+          formControlName="businessAreaRoleId"
+          [nzPlaceHolder]="'form.employee.businessAreaRoleName' | translate"
+        >
+          <nz-option
+            *ngFor="let option of BAroles"
+            [nzValue]="option.id"
+            [nzLabel]="option.roleCode"
+          ></nz-option>
+        </nz-select>
+      </nz-form-control>
+    </nz-form-item>
+
+    <nz-form-item>
       <nz-form-label [nzSpan]="7" nzRequired nzFor="employmentType">{{
         "form.employee.employmentType" | translate
       }}</nz-form-label>
@@ -415,49 +481,7 @@
       </nz-form-control>
     </nz-form-item>
     
-    <nz-form-item>
-      <nz-form-label [nzSpan]="7" nzRequired nzFor="department">{{
-        "form.employee.department" | translate
-      }}</nz-form-label>
-
-      <nz-form-control [nzSpan]="15" [nzErrorTip]="'validation.required' |translate ">
-        <nz-select
-          nzShowSearch
-          nzAllowClear
-          id="department"
-          formControlName="departmentId"
-          [nzPlaceHolder]="'form.employee.department' | translate"
-        >
-          <nz-option
-            *ngFor="let option of departments"
-            [nzValue]="option.id"
-            [nzLabel]="option.deptDesc"
-          ></nz-option>
-        </nz-select>
-      </nz-form-control>
-    </nz-form-item>
-
-    <nz-form-item>
-      <nz-form-label [nzSpan]="7" nzRequired nzFor="businessAreaId">{{
-        "form.employee.businessArea" | translate
-      }}</nz-form-label>
     
-      <nz-form-control [nzSpan]="15" [nzErrorTip]="'validation.required' |translate ">
-        <nz-select
-        nzShowSearch
-        nzAllowClear
-        id="businessAreaId"
-        formControlName="businessAreaId"
-        [nzPlaceHolder]="'form.employee.businessArea' | translate"
-        >
-        <nz-option
-          *ngFor="let option of businessAreas"
-          [nzValue]="option.id"
-          [nzLabel]="option.businessAreaName"
-        ></nz-option>
-        </nz-select>
-      </nz-form-control>
-    </nz-form-item>
 
     <nz-form-item>
       <nz-form-label [nzSpan]="7" nzRequired nzFor="currencyTypeId">{{

@@ -32,7 +32,7 @@ export class EmployeeFormComponent implements OnInit {
 	businessAreas=[];
 	status = [];
 	currencies = [];
-	
+	BAroles=[];
 
 	constructor(
 		private fb: FormBuilder,
@@ -122,6 +122,10 @@ export class EmployeeFormComponent implements OnInit {
 		this.businessAreaService.getBusinessAreaList().subscribe((response: any) => {
 			this.businessAreas = response.data;
 		}); 
+
+		this.rolesService.getJobRoleListSpecific(true).subscribe((response: any) => {
+			this.BAroles = response.data;
+		});
 
 		this.snapshot.params.subscribe((param) => {
 			if (param.type === 'edit') {

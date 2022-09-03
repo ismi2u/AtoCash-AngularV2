@@ -355,6 +355,9 @@
 			"status": "Status"
 		},
 		"expenseType": {
+			"expenseCategoryName": "Expense Category",
+			"generalLedgerAccountNo": "General Ledger Account No",
+			"generalLedgerAccountName": "General Ledger Account Name",
 			"expenseTypeName": "Name",
 			"expenseTypeDescription": "Description",
 			"status": "Status"
