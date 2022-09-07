@@ -1,8 +1,35 @@
 <form nz-form [formGroup]="form" (ngSubmit)="submitForm()">
+	
+	<nz-form-item>
+		<nz-form-label [nzSpan]="7" nzRequired nzFor="expenseCategory">{{
+		'form.expenseType.expenseCategory' | translate
+		}}</nz-form-label>
+
+		<nz-form-control
+		[nzSpan]="15"
+		[nzErrorTip]="'validation.required' | translate"
+		>
+		<nz-select
+			nzShowSearch
+			nzAllowClear
+			id="expenseCategoryId"
+			formControlName="expenseCategoryId"
+			[nzPlaceHolder]="'form.expenseType.expenseCategory' | translate"
+		>
+			<nz-option
+			*ngFor="let option of expenseCategoriesList"
+			[nzValue]="option.id"
+			[nzLabel]="option.expenseCategoryName"
+			></nz-option>
+		</nz-select>
+		</nz-form-control>
+	</nz-form-item>
+
 	<nz-form-item>
 		<nz-form-label [nzSpan]="7" nzRequired nzFor="project">{{
 			'form.expenseReimburse.expense' | translate
 		}}</nz-form-label>
+
 		<nz-form-control
 			[nzSpan]="15"
 			[nzErrorTip]="'validation.required' | translate"
@@ -40,6 +67,7 @@
 			/>
 		</nz-form-control>
 	</nz-form-item>
+	
 	<nz-form-item>
 		<nz-form-label [nzSpan]="7" nzRequired nzFor="invoiceDate">{{
 			'form.expenseReimburse.invoiceDate' | translate
@@ -57,6 +85,39 @@
 			></nz-date-picker>
 		</nz-form-control>
 	</nz-form-item>
+
+	<nz-form-item>
+		<nz-form-label [nzSpan]="7" nzRequired nzFor="NoOfDaysDate">{{
+			'form.expenseReimburse.NoOfDays' | translate
+		}}</nz-form-label>
+
+		<nz-form-control
+			[nzSpan]="20"
+			[nzErrorTip]="'validation.required' | translate"
+		>
+			<nz-range-picker
+				[nzDisabledDate]="disabledDate"
+				id="NoOfDaysDate"
+				formControlName="NoOfDaysDate"
+				[nzPlaceHolder]="['form.expenseReimburse.StartDate'| translate,'form.expenseReimburse.EndDate'| translate]"
+				(nzOnCalendarChange)="onCalendarChange($event)" [nzSize]="['large']"
+			></nz-range-picker>
+		</nz-form-control>
+	</nz-form-item>
+   
+	<nz-form-item>
+		<nz-form-label [nzSpan]="7">&nbsp;</nz-form-label>
+
+		<nz-form-control [nzSpan]="15">
+			<input
+				formControlName="NoOfDays"
+				type="text"
+				nz-input
+				[placeholder]="'form.expenseReimburse.NoOfDays' | translate"
+				id="NoOfDays" [disabled]="true" />
+		</nz-form-control>
+	</nz-form-item>
+
 	<nz-form-item>
 		<nz-form-label [nzSpan]="7" nzRequired nzFor="expenseReimbClaimAmount">{{
 			'form.expenseReimburse.expenseReimburseAmount' | translate
@@ -76,6 +137,7 @@
 			/>
 		</nz-form-control>
 	</nz-form-item>
+	
 	<nz-form-item>
 		<nz-form-label nzRequired [nzSpan]="7" nzFor="vendor">{{
 			'form.expenseReimburse.vendor' | translate
@@ -94,6 +156,26 @@
 			/>
 		</nz-form-control>
 	</nz-form-item>
+
+	<nz-form-item>
+		<nz-form-label nzRequired [nzSpan]="7" nzFor="taxNo">{{
+			'form.expenseReimburse.taxNo' | translate
+		}}</nz-form-label>
+
+		<nz-form-control
+			[nzSpan]="15"
+			[nzErrorTip]="'validation.required' | translate"
+		>
+			<input
+				formControlName="taxNo"
+				type="text"
+				nz-input
+				[placeholder]="'form.expenseReimburse.taxNo' | translate"
+				id="taxNo"
+			/>
+		</nz-form-control>
+	</nz-form-item>
+
 	<nz-form-item>
 		<nz-form-label nzRequired [nzSpan]="7" nzFor="tax">{{
 			'form.expenseReimburse.tax' | translate
@@ -113,6 +195,7 @@
 			/>
 		</nz-form-control>
 	</nz-form-item>
+
 	<nz-form-item>
 		<nz-form-label nzRequired [nzSpan]="7" nzFor="vendor">{{
 			'form.expenseReimburse.taxAmount' | translate

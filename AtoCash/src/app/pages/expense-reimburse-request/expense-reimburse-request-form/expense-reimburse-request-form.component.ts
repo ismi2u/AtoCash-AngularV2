@@ -13,6 +13,7 @@ import { TravelRequestService } from 'src/app/services/travel-request.service';
 import { ExpenseReimburseRequestService } from 'src/app/services/expense-reimburse-request.service';
 import { NzModalRef } from 'ng-zorro-antd/modal';
 import { constant } from 'src/app/constant/constant';
+import { ExpenseCategoriesService } from 'src/app/services/expense-categories.service';
 
 @Component({
 	selector: 'app-expense-reimburse-form',
@@ -32,6 +33,7 @@ export class ExpenseReimburseRequestFormComponent implements OnInit {
 	empId = this.commonService.getUser().empId;
 	taxes = [...Array(31).keys()];
 	responseFileList = [];
+	expenseCategoriesList=[];
 	@Input() data;
 
 	constructor(
@@ -46,6 +48,7 @@ export class ExpenseReimburseRequestFormComponent implements OnInit {
 		private commonService: CommonService,
 		private translate: TranslateService,
 		private modal: NzModalRef,
+		private expenseCategoriesService: ExpenseCategoriesService,
 	) {}
 
 	getButtonLabel = () => {
@@ -67,6 +70,9 @@ export class ExpenseReimburseRequestFormComponent implements OnInit {
 						...this.form.value,
 						taxAmount: Number(this.form.controls['taxAmount'].value),
 						documents: response.data,
+						expStrtDate:this.form.controls['NoOfDaysDate'].value[0],
+						expEndDate:this.form.controls['NoOfDaysDate'].value[1],
+						expNoOfDays:this.form.controls['NoOfDays'].value,
 						index: !this.data ? null : this.data.index,
 					},
 					type: !this.data ? 'add' : 'edit',
@@ -84,6 +90,11 @@ export class ExpenseReimburseRequestFormComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
+
+		this.expenseCategoriesService.getExpenseCategoriesList().subscribe((response: any) => {
+			this.expenseCategoriesList = response.data;
+		});
+
 		this.expenseReimburseService.totalClaimAmount.next(0);
 		this.expenseTypeService.getExpenseTypesList().subscribe((data: any) => {
 			this.expenseType = data.data;
@@ -93,7 +104,10 @@ export class ExpenseReimburseRequestFormComponent implements OnInit {
 			this.tasks = response.data;
 		});
 
+		
+		
 		this.form = this.fb.group({
+			expenseCategoryId: [null, [Validators.required]],
 			invoiceNo: [null, [Validators.required]],
 			invoiceDate: [null, [Validators.required]],
 			expenseTypeId: [null, [Validators.required]],
@@ -103,8 +117,13 @@ export class ExpenseReimburseRequestFormComponent implements OnInit {
 			taxAmount: [null, [Validators.required]],
 			vendor: [null, [Validators.required]],
 			description: [null, [Validators.required]],
+			taxNo: [null, [Validators.required]],
+			NoOfDays:[null, [Validators.required]],
+			NoOfDaysDate:[null, [Validators.required]]
 		});
 
+		this.form.controls['NoOfDays'].disable();
+		
 		if (this.data) {
 			const formData = {
 				invoiceNo: this.data.invoiceNo,
@@ -185,4 +204,21 @@ export class ExpenseReimburseRequestFormComponent implements OnInit {
 		this.fileList = this.fileList.concat(file);
 		return false;
 	};
+
+	/*onCalendarChange = (event) => {
+		
+	}*/
+
+	onCalendarChange(result: Date[]): void {
+		console.log('onCalendarChange', result);
+		this.form.controls['NoOfDays'].setValue(this.diffDays(result[0], result[1]));
+	}
+
+	diffDays = (startDt, EndDt) => {
+		var date1:any = new Date(startDt);
+		var date2:any = new Date(EndDt);
+		var diffDays:any = Math.floor((date2 - date1) / (1000 * 60 * 60 * 24));
+
+		return diffDays+1;
+	}
 }
