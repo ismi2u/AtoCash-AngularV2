@@ -73,6 +73,10 @@ export class ExpenseTypeFormComponent implements OnInit {
 					.subscribe((response: any) => {
 						this.recordId = param.id;
 						delete response.data.id;
+						delete response.data.expenseCategoryName;
+						delete response.data.expenseCategoryDesc;
+						delete response.data.generalLedgerAccountName;
+						delete response.data.generalLedgerAccountNo;
 						delete response.data.statusType;
 						this.form.setValue(response.data);
 						this.commonService.loading.next(false);

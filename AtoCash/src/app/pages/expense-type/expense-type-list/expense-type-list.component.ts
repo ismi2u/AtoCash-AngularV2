@@ -11,9 +11,12 @@ import { ExpenseTypesService } from 'src/app/services/expense-types.service';
 export class ExpenseTypeListComponent implements OnInit {
 	expenseTypes: any;
 	expenseTypesHeaders: any = [
+		'tableHeader.expenseType.expenseCategoryName',
+		'tableHeader.expenseType.generalLedgerAccountNo',
+		'tableHeader.expenseType.generalLedgerAccountName',
 		'tableHeader.expenseType.expenseTypeName',
 		'tableHeader.expenseType.expenseTypeDescription',
-    'tableHeader.expenseType.status'
+        'tableHeader.expenseType.status'
 	];
 
 	constructor(

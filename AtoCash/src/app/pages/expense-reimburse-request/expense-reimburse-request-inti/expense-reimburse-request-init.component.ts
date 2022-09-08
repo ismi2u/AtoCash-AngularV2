@@ -13,6 +13,8 @@ import { ExpenseReimburseRequestService } from 'src/app/services/expense-reimbur
 import { NzModalRef } from 'ng-zorro-antd/modal';
 import { constant } from 'src/app/constant/constant';
 import { CurrencyService } from 'src/app/services/currency.service';
+import { DepartmentService } from 'src/app/services/department.service';
+import { BusinessAreaService } from 'src/app/services/businessarea.service';
 
 @Component({
 	selector: 'app-expense-reimburse-form',
@@ -26,10 +28,12 @@ export class ExpenseReimburseRequestInitComponent implements OnInit {
 	subProjects = [];
 	expenseType = [];
 	tasks = [];
-	enableProject = false;
+	enableProject = "project";
 	empId = this.commonService.getUser().empId;
 	taxes = [...Array(31).keys()];
 	currencies = [];
+	departments = [];
+	businessAreas = [];
 	@Input() data;
 
 	constructor(
@@ -45,6 +49,8 @@ export class ExpenseReimburseRequestInitComponent implements OnInit {
 		private translate: TranslateService,
 		private modal: NzModalRef,
 		private currencyService: CurrencyService,
+		private departmentService: DepartmentService,
+		private businessAreaService: BusinessAreaService,
 	) {}
 
 	submitForm(): void {
@@ -71,12 +77,18 @@ export class ExpenseReimburseRequestInitComponent implements OnInit {
 			this.tasks = response.data;
 			this.commonService.loading.next(false);
 		});
+
+		
+
 		this.form = this.fb.group({
 			currencyTypeId: [this.commonService.getUser().currencyId],
 			expenseReportTitle: ['Expense Reimburse', [Validators.required]],
 			projectId: [null, [Validators.nullValidator]],
 			subProjectId: [null, [Validators.nullValidator]],
 			workTaskId: [null, [Validators.nullValidator]],
+			expensefor: [null],
+			departmentId:[null, [Validators.nullValidator]],
+			businessAreaId:[null, [Validators.nullValidator]]
 		});
 
 		this.form.controls['currencyTypeId'].disable();
@@ -86,7 +98,7 @@ export class ExpenseReimburseRequestInitComponent implements OnInit {
 			delete this.data.employeeId;
 			this.form.setValue(this.data);
 			if (this.data.projectId) {
-				this.enableProject = true;
+				this.enableProject = "project";
 				this.projectService
 					.getProjectListByEmpId()
 					.subscribe((response: any) => {
@@ -124,20 +136,45 @@ export class ExpenseReimburseRequestInitComponent implements OnInit {
 	};
 
 	refreshForm = (event) => {
-        if(event)
-		this.projectService.getProjectListByEmpId().subscribe((response: any) => {
-			this.projects = response.data;
-		});
+		 
+        if(event=='project')
+		{
+			this.projectService.getProjectListByEmpId().subscribe((response: any) => {
+				this.projects = response.data;
+			});
 
-		if(!event){
-		this.form.controls['projectId'].setValue(null);
-		this.form.controls['subProjectId'].setValue(null);
-		this.form.controls['workTaskId'].setValue(null);
+			this.form.controls['departmentId'].setValue(null);
+			this.form.controls['businessAreaId'].setValue(null);
+
 		}
+		else {
+
+			this.form.controls['projectId'].setValue(null);
+			this.form.controls['subProjectId'].setValue(null);
+			this.form.controls['workTaskId'].setValue(null);
+			if(event=='department')
+			{
+				this.form.controls['businessAreaId'].setValue(null);
+				this.departmentService.getDepartmentList().subscribe((response: any) => {
+					this.departments = response.data;
+				});
+
+			}
+			if(event=='business')
+			{
+				this.form.controls['departmentId'].setValue(null);		
+				this.businessAreaService.getBusinessAreaList().subscribe((response: any) => {
+					this.businessAreas = response.data;
+				}); 
+
+			}
+
+		}
+
 	};
 
 	getModalButton(data) {
-	return this.translate.instant(data ? 'button.update' : 'button.next')	
+		return this.translate.instant(data ? 'button.update' : 'button.next')	
 	}
 }
 

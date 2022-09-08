@@ -84,8 +84,11 @@
 			"country": "Country"
 		},
 		"expenseReimburse": {
+			"expensefor": "Expense For",
 			"expenseReimburseAmount": "Expense Amount",
 			"enableProject": "Enable Project",
+			"enabledepartment": "Enable Department",
+			"enablestore": "Enable Business",
 			"project": "Project",
 			"expense": "Expense",
 			"subProject": "Sub Project",
@@ -99,7 +102,12 @@
 			"taxAmount": "Tax Amount",
 			"title": " Expense Title",
 			"employee": " Employee",
-			"location": "Location"
+			"location": "Location",
+			"department":"Department",
+			"taxNo":"Tax No.",
+			"NoOfDays":"No Of Days",
+			"StartDate":"Start Time",
+			"EndDate":"End Time"
 		},
 		"status": {
 			"status": "Status"
@@ -171,7 +179,7 @@
 			"roleCode": "Role Code",
 			"roleName": "Role Name",
 			"maxAmount": "Max.Amount",
-			"isStoreRole":"Is Store Role"
+			"isStoreRole":"Is Business Area Role"
 		},
 		"employmentType": {
 			"employmentTypeName": "Name",
@@ -184,7 +192,7 @@
 		"expenseType": {
 			"expenseCategory": "Expense Category",
 			"generalLedger": "General Ledger",
-			"expenseTypeName": "Name",
+			"expenseTypeName": "Expense Type",
 			"expenseTypeDescription": "Description"
 		},
 		"approvalLevel": {
@@ -215,10 +223,14 @@
 			"passportNo": "Passport.No",
 			"taxNumber": "Tax.No",
 			"dob": "Date of Birth",
-			"approvalGroup": "Approval Group",
-			"role": "Job Role",
+			"approvalGroup": "Department Approval Group",
+			"role": "Department Job Role",
+			"businessAreaApprovalGroup": "Business Area AG ",
+			"businessAreaApprovalGroupP": "Business Area Area Group ",
+			"businessAreaRoleName": "Business Area Role",
 			"employmentType": "Employment Type",
 			"department": "Department",
+			"businessArea": "Business Area",
 			"businessarea": "Business Area",
 			"gender": "Gender",
 			"email": "Email",
@@ -338,7 +350,8 @@
 		"role": {
 			"roleCode": "Role Code",
 			"roleName": "Role Name",
-			"maxAmount": "Max.Amount"
+			"maxAmount": "Max.Amount",
+			"isStoreRole":"Is Store Role"
 		},
 		"employmentType": {
 			"employmentTypeName": "Name",
@@ -350,7 +363,10 @@
 			"status": "Status"
 		},
 		"expenseType": {
-			"expenseTypeName": "Name",
+			"expenseCategoryName": "Expense Category",
+			"generalLedgerAccountNo": "General Ledger Account No",
+			"generalLedgerAccountName": "General Ledger Account Name",
+			"expenseTypeName": "Expense Type",
 			"expenseTypeDescription": "Description",
 			"status": "Status"
 		},

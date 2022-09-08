@@ -13,6 +13,7 @@ export class RolelistComponent implements OnInit {
 		'tableHeader.role.roleCode',
 		'tableHeader.role.roleName',
 		'tableHeader.role.maxAmount',
+		'tableHeader.role.isStoreRole',
 	];
 	constructor(
 		private _cdr: ChangeDetectorRef,

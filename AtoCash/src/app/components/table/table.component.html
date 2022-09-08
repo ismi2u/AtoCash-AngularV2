@@ -188,6 +188,9 @@
 			<td *ngIf="data.maxPettyCashAllowed && formName == 'role'">
 				{{ data.maxPettyCashAllowed }}
 			</td>
+			<td *ngIf="data.isStoreRole && formName == 'role'">
+				{{ data.isStoreRole===true ? "Yes" : "No" }}
+			</td>
 
 			<!-- Employment Types -->
 			<td *ngIf="data.empJobTypeCode && formName == 'employeeType'">
@@ -209,6 +212,15 @@
 			</td>
 
 			<!-- Expense Types -->
+			<td *ngIf="data.expenseCategoryName && formName == 'expense'">
+				{{ data.expenseCategoryName }}
+			</td>
+			<td *ngIf="data.generalLedgerAccountNo && formName == 'expense'">
+				{{ data.generalLedgerAccountNo }}
+			</td>
+			<td *ngIf="data.generalLedgerAccountName && formName == 'expense'">
+				{{ data.generalLedgerAccountName }}
+			</td>
 			<td *ngIf="data.expenseTypeName && formName == 'expense'">
 				{{ data.expenseTypeName }}
 			</td>
