@@ -118,11 +118,11 @@ export class ExpenseReimburseRequestFormComponent implements OnInit {
 			vendor: [null, [Validators.required]],
 			description: [null, [Validators.required]],
 			taxNo: [null, [Validators.required]],
-			NoOfDays:[null, [Validators.required]],
-			NoOfDaysDate:[null, [Validators.required]]
+			NoOfDays:[null],
+			NoOfDaysDate:[null]
 		});
 
-		this.form.controls['NoOfDays'].disable();
+		//this.form.controls['NoOfDays'].disable();
 		
 		if (this.data) {
 			const formData = {
@@ -215,10 +215,15 @@ export class ExpenseReimburseRequestFormComponent implements OnInit {
 	}
 
 	diffDays = (startDt, EndDt) => {
+		if(startDt!==null && EndDt!==null)
+		{
 		var date1:any = new Date(startDt);
 		var date2:any = new Date(EndDt);
 		var diffDays:any = Math.floor((date2 - date1) / (1000 * 60 * 60 * 24));
 
 		return diffDays+1;
+		}else{
+			return null;
+		}
 	}
 }

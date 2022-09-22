@@ -32,9 +32,7 @@
 				<p class="expense-type">
 					<b>{{ 'heading.chargeTo' | translate }}</b>
 					{{
-						primaryExpenseData.projectId
-							? ('components.requestDetails.project' | translate)
-							: ('components.requestDetails.department' | translate)
+						primaryExpenseData.expensefor
 					}}
 				</p>
 				<p class="amount">

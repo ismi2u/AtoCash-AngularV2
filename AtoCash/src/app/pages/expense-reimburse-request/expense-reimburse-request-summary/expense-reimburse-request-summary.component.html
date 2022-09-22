@@ -1,7 +1,7 @@
 
 
 <p *ngIf="!data.projectId">
-  <b>{{ 'heading.chargeTo' | translate}} </b>  {{ 'components.requestDetails.department' | translate}}
+  <b>{{ 'heading.chargeTo' | translate}} </b>  {{ data.expensefor | translate}}
   </p>
 <nz-descriptions nzTitle="Charge To" *ngIf="data.projectId">
  

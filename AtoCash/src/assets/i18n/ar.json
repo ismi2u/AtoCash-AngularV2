@@ -34,10 +34,13 @@
 		"dashboard": "لوحة التحكم",
 		"costCenter": "مراكز التكلفه",
 		"department": "ادارات",
+		"businessArea": "جهات العمل",
+		"generalLedger": "الدفتر العام",	
 		"role": " الدور الوظيفي",
 		"employmentType": "انواع التعيين",
 		"expenseType": "انواع المصروفات",
 		"expenseStatus": "حالة المصروفات",
+		"expenseCategory": "انواع المصاريف",
 		"cashAdvanceStatus": "المقدمات النقديه",
 		"myInbox": "صندوق الوارد",
 		"report": "التقارير",
@@ -66,7 +69,9 @@
 		"subClaims": "طلبات التعويض النقدي الفرعيه",
 		"settlementStatus":"حالة المخالصه",
 		"settlementFrom": "من",
-		"settlementTo": "الي"
+		"settlementTo": "الي",
+		"pendingApproval": "موافقات قيد الانتظار",
+        "pendingSettlement" : "تحويلات قيد الانتظار"
 	},
 	"form": {
 		"disburse": {
@@ -148,8 +153,19 @@
 		},
 		"department": {
 			"departmentCode": "الرمز",
-      "departmentName": "الاسم",
-      "costCenter": "مركز التكلفه",
+      		"departmentName": "الاسم",
+      		"costCenter": "مركز التكلفه",
+			"status": "الحاله"
+		},
+		"businessArea": {
+			"businessAreaCode": "رمز جهة العمل",
+			"businessAreaName": "اسم جهة العمل",
+			"costCenter": "مراكز التكلفه",
+			"status": "الحاله"
+		},
+		"generalLedger": {
+			"generalLedgerAccountNo": "رقم حساب المصروف",
+			"generalLedgerAccountName": "اسم حساب المصروف",
 			"status": "الحاله"
 		},
 		"role": {
@@ -165,6 +181,11 @@
 			"expenseTypeName": "الاسم",
 			"expenseTypeDescription": "الوصف"
 		  },
+		  "expenseCategory": {
+			"expenseCategoryName": "الاسم",
+			"expenseCategoryDesc": "الوصف",
+			"status": "الحاله"
+		 },
 		  "approvalLevel": {
 			"level": "الدرجه",
 			"levelDescription": "الوصف"
@@ -203,7 +224,11 @@
 			"doj": "تاريخ التعيين",
 			"nationality": "الجنسيه",
 			"status": "الحاله",
-			"currency": "العمله"
+			"currency": "العمله",
+			"businessAreaApprovalGroup": "سلسلة موافقات جهة العمل ",
+			"businessAreaApprovalGroupP": "سلسلة موافقات جهة العمل ",
+			"businessAreaRoleName": "Business Area Role",
+			"businessArea": "جهات العمل"
 		},
 		"project": {
 			"projectName": "الاسم",
@@ -300,6 +325,18 @@
       "costCenter": "مركز التكلفه",
 			"status": "الحاله"
 		},
+		"businessArea": {
+			"businessAreaCode": "رمز جهة العمل",
+			"businessAreaName": "اسم جهة العمل",
+			"costCenter": "مركز التكلفه",
+			"status": "الحاله"
+		},
+		"generalLedger": {
+			"generalLedgerAccountNo": "رقم حساب المصروف",
+			"generalLedgerAccountName": "اسم حساب المصروف",
+			"costCenter": "مركز التكلفه",
+			"status": "الحاله"
+		},
 		"role": {
 			"roleCode": "الرمز",
 			"roleName": "الاسم",
@@ -312,6 +349,11 @@
 		  "expenseType": {
 			"expenseTypeName": "الاسم",
 			"expenseTypeDescription": "الوصف",
+			"status": "الحاله"
+		},
+		"expenseCategory": {
+			"expenseCategoryName": "الاسم",
+			"expenseCategoryDesc": "الوصف",
 			"status": "الحاله"
 		},
 		"approvalLevel": {
@@ -421,12 +463,14 @@
     "addRequest": "! تم اضافة البيانات بنجاح",
     "updateRequest": "! تم تعديل البيانات بنجاح",
     "deleteRequest": "! تم الغاء البيانات بنجاح",
-    "noRequestSelected": "! لم يتم اختيار طلب"
+    "noRequestSelected": "! لم يتم اختيار طلب",
+	"noRecordsToDownload": "!لا يوجد بيانات للتحميل"
 	},
 	"alert": {
 		"approve": "تأكيد الموافقه؟",
 		"reject": "تأكيد الرفض؟",
-		"delete": "تأكيد الالغاء؟"
+		"delete": "تأكيد الالغاء؟",
+		"claimAlert":"لا تستطيع سحب او تعديل طلب المصروفات بعد ارساله *"
 	},
 	"components": {
 		"requestDetails": {
@@ -459,7 +503,9 @@
 			"currency": "العمله",
 			"recordDate": "تاريخ السجل",
 			"accountNo": "رقم الحساب",
-			"cardNo": "رقم البطاقه"
+			"cardNo": "رقم البطاقه",
+			"expenseId": "رقم المصروف",
+			"pettyCashId": "رقم المصروف النثري"
 		},
 		"filters": {
 			"reports": {

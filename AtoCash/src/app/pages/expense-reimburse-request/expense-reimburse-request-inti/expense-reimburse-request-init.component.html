@@ -17,9 +17,9 @@
 
     <nz-radio-group [(ngModel)]="enableProject" (ngModelChange)="refreshForm($event)"  id="expensefor"
     formControlName="expensefor">
-      <label nz-radio-button nzValue="project">Project</label>
-      <label nz-radio-button nzValue="department">Department</label>
-      <label nz-radio-button nzValue="business">Business Area</label>
+      <label nz-radio-button nzValue="Project">Project</label>
+      <label nz-radio-button nzValue="Department">Department</label>
+      <label nz-radio-button nzValue="Business Area">Business Area</label>
     </nz-radio-group>
   </nz-form-item>
 
@@ -81,7 +81,7 @@
 
 
   <!--Project Start -->
-  <nz-form-item *ngIf="enableProject=== 'project'">
+  <nz-form-item *ngIf="enableProject=== 'Project'">
     <nz-form-label [nzSpan]="7" nzRequired nzFor="project">{{
       "form.expenseReimburse.project" | translate
     }}</nz-form-label>
@@ -109,7 +109,7 @@
 
   <nz-form-item
     *ngIf="
-      enableProject==='project' &&
+      enableProject==='Project' &&
       form.controls['projectId'].value &&
       subProjects.length > 0
     "
@@ -139,7 +139,7 @@
   </nz-form-item>
 
   <nz-form-item
-    *ngIf="enableProject==='project' && form.controls['subProjectId'].value && tasks.length > 0">
+    *ngIf="enableProject==='Project' && form.controls['subProjectId'].value && tasks.length > 0">
     <nz-form-label [nzSpan]="7"  nzFor="task">{{
       "form.expenseReimburse.task" | translate
     }}</nz-form-label>
@@ -164,58 +164,10 @@
   </nz-form-item>
   <!-- Project End -->
 
-  <!--Department Start -->
-  <nz-form-item *ngIf="enableProject=== 'department'">
-    <nz-form-label [nzSpan]="7" nzRequired nzFor="department">{{
-      "form.expenseReimburse.department" | translate
-    }}</nz-form-label>
-    <nz-form-control
-      [nzSpan]="15"
-      [nzErrorTip]="'validation.required' | translate"
-    >
-      <nz-select
-        nzShowSearch
-        nzAllowClear
-        id="departmentId"
-        formControlName="departmentId"
-        [nzPlaceHolder]="'form.expenseReimburse.department' | translate">
-
-        <nz-option
-          *ngFor="let option of departments"
-          [nzValue]="option.id"
-          [nzLabel]="option.deptDesc"
-        ></nz-option>
-      </nz-select>
-    </nz-form-control>
-  </nz-form-item>
-  <!--Department End -->
-
-  <!-- Business Area Start -->
-  <nz-form-item  *ngIf="enableProject==='business'">
-    <nz-form-label [nzSpan]="7" nzRequired nzFor="businessAreaId" >{{
-      "form.employee.businessArea" | translate
-    }}</nz-form-label>
-  
-    <nz-form-control [nzSpan]="15" [nzErrorTip]="'validation.required' |translate ">
-      <nz-select
-      nzShowSearch
-      nzAllowClear
-      id="businessAreaId"
-      formControlName="businessAreaId"
-      [nzPlaceHolder]="'form.employee.businessArea' | translate"
-      >
-      <nz-option
-        *ngFor="let option of businessAreas"
-        [nzValue]="option.id"
-        [nzLabel]="option.businessAreaName"
-      ></nz-option>
-      </nz-select>
-    </nz-form-control>
-  </nz-form-item>
-  <!-- Business Area End -->
+   
   <nz-form-item>
     <nz-form-control class="action-control">
-      <button nz-button nzType="primary" [disabled]="(!form.valid && fileList.length == 0)  || (enableProject=='project' && !form.controls['projectId'].value) || (enableProject=='department' && !form.controls['departmentId'].value) || (enableProject=='business' && !form.controls['businessAreaId'].value)">
+      <button nz-button nzType="primary" [disabled]="(!form.valid && fileList.length == 0)  || (enableProject=='Project' && !form.controls['projectId'].value)">
        {{getModalButton(data)}}
       </button>
     </nz-form-control>
