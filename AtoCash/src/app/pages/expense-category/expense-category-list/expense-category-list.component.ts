@@ -35,11 +35,12 @@ export class ExpenseCategoryListComponent implements OnInit {
 
 	deleteRecord = (event) => {
 		this.commonService.loading.next(true);
-		this.ExpenseCategory.deleteExpenseCategory(event.id).subscribe(() => {
-			this.ExpenseCategory.getExpenseCategories();
+		this.expenseCategoriesService.deleteExpenseCategory(event.id).subscribe(() => {
+			this.expenseCategoriesService.getExpenseCategories();
 			this.commonService.loading.next(false);
 		});
 	};
+	
 
 	editRecord = (event) => {
 		this.router.navigateByUrl(`/expense-category/action/edit/${event.id}`);

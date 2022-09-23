@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
 import { CostService } from 'src/app/services/cost.service';
 import { RolesService } from 'src/app/services/roles.service';
+import { CommonService } from 'src/app/services/common.service';
 
 @Component({
 	selector: 'app-role-form',
@@ -24,6 +25,7 @@ export class RoleFormComponent implements OnInit {
 		private router: Router,
 		private costCenterService: CostService,
 		private translate: TranslateService,
+		private commonService: CommonService,
 	) {}
 	getButtonLabel = () => {
 		return this.mode !== 'edit'
@@ -57,12 +59,14 @@ export class RoleFormComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
+		this.commonService.loading.next(true);
 		this.costCenterService.getCostCenterList().subscribe((response: any) => {
 			this.costCenterList = response.data;
 		});
 
 		this.snapshot.params.subscribe((param) => {
 			if (param.type === 'edit') {
+				this.commonService.loading.next(false);
 				this.mode = param.type;
 				this.roleService.getJobRoleById(param.id).subscribe((response: any) => {
 					this.recordId = param.id;
