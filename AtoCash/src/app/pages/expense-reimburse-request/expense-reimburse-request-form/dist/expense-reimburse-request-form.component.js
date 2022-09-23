@@ -28,12 +28,13 @@ exports.ExpenseReimburseRequestFormComponent = void 0;
 var core_1 = require("@angular/core");
 var forms_1 = require("@angular/forms");
 var ExpenseReimburseRequestFormComponent = /** @class */ (function () {
-    function ExpenseReimburseRequestFormComponent(fb, snapshot, expenseReimburseService, expenseTypeService, projectService, subProjectService, taskService, router, commonService, translate, modal) {
+    function ExpenseReimburseRequestFormComponent(fb, snapshot, expenseReimburseService, expenseTypeService, projectService, subProjectService, taskService, router, commonService, translate, modal, expenseCategoriesService) {
         var _this = this;
         this.fb = fb;
         this.snapshot = snapshot;
         this.expenseReimburseService = expenseReimburseService;
         this.expenseTypeService = expenseTypeService;
+        this.expenseCategories = expenseCategoriesService;
         this.projectService = projectService;
         this.subProjectService = subProjectService;
         this.taskService = taskService;
@@ -51,6 +52,7 @@ var ExpenseReimburseRequestFormComponent = /** @class */ (function () {
         this.empId = this.commonService.getUser().empId;
         this.taxes = __spreadArrays(Array(31).keys());
         this.responseFileList = [];
+        this.expenseCategoriesList=[];
         this.getButtonLabel = function () {
             return !_this.data
                 ? _this.translate.instant('button.add')
@@ -70,6 +72,13 @@ var ExpenseReimburseRequestFormComponent = /** @class */ (function () {
                 _this.tasks = response.data;
             });
         };
+
+        this.selectexpenseCategories = function (event)  {
+            this.expenseCategoriesService.getExpenseCategories(event).subscribe(function (response) {
+                    _this.expenseCategoriesList = response.data;
+                });                
+        };
+        
         this.disabledDate = function (vale) {
             var date = new Date();
             return new Date(date).getTime() < new Date(vale).getTime();
@@ -78,6 +87,9 @@ var ExpenseReimburseRequestFormComponent = /** @class */ (function () {
             _this.fileList = _this.fileList.concat(file);
             return false;
         };
+
+       
+    
     }
     ExpenseReimburseRequestFormComponent.prototype.submitForm = function () {
         var _this = this;
@@ -107,7 +119,11 @@ var ExpenseReimburseRequestFormComponent = /** @class */ (function () {
         this.taskService.getTasksList().subscribe(function (response) {
             _this.tasks = response.data;
         });
+        this.expenseCategories.getExpenseCategoriesList().subscribe(function(response){
+            _this.expenseCategoryId=response.data;
+        })
         this.form = this.fb.group({
+            expenseCategoryId: [null, [forms_1.Validators.required]],
             invoiceNo: [null, [forms_1.Validators.required]],
             invoiceDate: [null, [forms_1.Validators.required]],
             expenseTypeId: [null, [forms_1.Validators.required]],
@@ -116,10 +132,14 @@ var ExpenseReimburseRequestFormComponent = /** @class */ (function () {
             tax: [0, [forms_1.Validators.required, forms_1.Validators.max(100)]],
             taxAmount: [null, [forms_1.Validators.required]],
             vendor: [null, [forms_1.Validators.required]],
-            description: [null, [forms_1.Validators.required]]
+            description: [null, [forms_1.Validators.required]],
+            taxNo: [null, [forms_1.Validators.required]],
+            NoOfDays:[null],
+			NoOfDaysDate:[null]
         });
         if (this.data) {
             var formData = {
+                expenseCategoryId:this.data.expenseCategoryId,
                 invoiceNo: this.data.invoiceNo,
                 invoiceDate: this.data.invoiceDate,
                 expenseTypeId: this.data.expenseTypeId,
@@ -128,7 +148,10 @@ var ExpenseReimburseRequestFormComponent = /** @class */ (function () {
                 tax: this.data.tax,
                 taxAmount: Number(this.data.taxAmount),
                 vendor: this.data.vendor,
-                description: this.data.description
+                description: this.data.description,
+                taxNo:this.data.taxNo,
+                NoOfDays:this.data.expNoOfDays,
+				NoOfDaysDate:this.data.expStrtDate
             };
             if (this.data.documents && this.data.documents.length > 0) {
                 this.fileList = this.data.documents.map(function (document) { return (__assign(__assign({}, document), { name: document.actualFileName })); });
