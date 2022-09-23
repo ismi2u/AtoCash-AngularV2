@@ -34,6 +34,9 @@ export class ExpenseReimburseRequestFormComponent implements OnInit {
 	taxes = [...Array(31).keys()];
 	responseFileList = [];
 	expenseCategoriesList=[];
+	expStrtDate=null;
+	expEndDate=null;
+	expNoOfDays=null;
 	@Input() data;
 
 	constructor(
@@ -70,9 +73,9 @@ export class ExpenseReimburseRequestFormComponent implements OnInit {
 						...this.form.value,
 						taxAmount: Number(this.form.controls['taxAmount'].value),
 						documents: response.data,
-						expStrtDate:this.form.controls['NoOfDaysDate'].value[0],
-						expEndDate:this.form.controls['NoOfDaysDate'].value[1],
-						expNoOfDays:this.form.controls['NoOfDays'].value,
+						expStrtDate:this.expStrtDate,
+						expEndDate:this.expEndDate,
+						expNoOfDays:this.expNoOfDays,
 						index: !this.data ? null : this.data.index,
 					},
 					type: !this.data ? 'add' : 'edit',
@@ -91,8 +94,8 @@ export class ExpenseReimburseRequestFormComponent implements OnInit {
 
 	ngOnInit(): void {
 
-		this.expenseCategoriesService.getExpenseCategoriesList().subscribe((response: any) => {
-			this.expenseCategoriesList = response.data;
+		this.expenseCategoriesService.getExpenseCategoriesList().subscribe((data: any) => {
+			this.expenseCategoriesList = data.data;
 		});
 
 		this.expenseReimburseService.totalClaimAmount.next(0);
@@ -122,10 +125,11 @@ export class ExpenseReimburseRequestFormComponent implements OnInit {
 			NoOfDaysDate:[null]
 		});
 
-		//this.form.controls['NoOfDays'].disable();
+		this.form.controls['NoOfDays'].disable();
 		
 		if (this.data) {
 			const formData = {
+				expenseCategoryId:this.data.expenseCategoryId,
 				invoiceNo: this.data.invoiceNo,
 				invoiceDate: this.data.invoiceDate,
 				expenseTypeId: this.data.expenseTypeId,
@@ -135,6 +139,9 @@ export class ExpenseReimburseRequestFormComponent implements OnInit {
 				taxAmount: Number(this.data.taxAmount),
 				vendor: this.data.vendor,
 				description: this.data.description,
+				taxNo: this.data.taxNo,
+				NoOfDays:this.data.expNoOfDays,
+				NoOfDaysDate:this.data.expStrtDate
 			};
 			if (this.data.documents && this.data.documents.length > 0) {
 				this.fileList = this.data.documents.map((document) => ({
@@ -195,6 +202,13 @@ export class ExpenseReimburseRequestFormComponent implements OnInit {
 			});
 	};
 
+	selectexpenseCategories = (event) =>
+	{
+		this.expenseCategoriesService.getExpenseCategoryById(event).subscribe((response:any)=>{
+			this.expenseCategoriesList = response.data
+		})
+	}
+	
 	disabledDate = (vale: Date): boolean => {
 		const date = new Date();
 		return new Date(date).getTime() < new Date(vale).getTime();
@@ -212,18 +226,16 @@ export class ExpenseReimburseRequestFormComponent implements OnInit {
 	onCalendarChange(result: Date[]): void {
 		console.log('onCalendarChange', result);
 		this.form.controls['NoOfDays'].setValue(this.diffDays(result[0], result[1]));
+		this.expStrtDate=result[0];
+		this.expEndDate=result[1];
+		this.expNoOfDays=this.form.controls['NoOfDays'].value;
 	}
 
 	diffDays = (startDt, EndDt) => {
-		if(startDt!==null && EndDt!==null)
-		{
 		var date1:any = new Date(startDt);
 		var date2:any = new Date(EndDt);
 		var diffDays:any = Math.floor((date2 - date1) / (1000 * 60 * 60 * 24));
 
 		return diffDays+1;
-		}else{
-			return null;
-		}
 	}
 }

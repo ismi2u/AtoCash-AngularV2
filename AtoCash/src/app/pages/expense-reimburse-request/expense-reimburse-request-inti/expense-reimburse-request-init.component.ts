@@ -144,12 +144,12 @@ export class ExpenseReimburseRequestInitComponent implements OnInit {
 			this.form.controls['projectId'].setValue(null);
 			this.form.controls['subProjectId'].setValue(null);
 			this.form.controls['workTaskId'].setValue(null);
-			if(event=='department')
+			if(event=='Department')
 			{
 				this.isBusinessAreaReq=false;
 
 			}
-			if(event=='business')
+			if(event=='Business Area')
 			{
 				 
 				this.isBusinessAreaReq=true;
