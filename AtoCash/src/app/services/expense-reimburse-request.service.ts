@@ -87,6 +87,13 @@ export class ExpenseReimburseRequestService {
 		);
 	};
 
+	getExpenseRequestCountBusinessArea = (id: any) => {
+		return this.http.get(
+			`${this.commonService.getApi()}/api/ExpenseReimburseRequests/CountAllBusinessAreaExpenseReimburseRequestRaisedByEmployee/${id}`,
+		);
+	};
+
+
 	deleteDuplicateRequest = (id) => {
        delete this.duplicateExpenseReimburseRequest[id]
 	   return Object.values(this.duplicateExpenseReimburseRequest)

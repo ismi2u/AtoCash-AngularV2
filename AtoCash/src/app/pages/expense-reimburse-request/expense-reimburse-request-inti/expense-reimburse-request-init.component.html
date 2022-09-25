@@ -17,9 +17,15 @@
 
     <nz-radio-group [(ngModel)]="enableProject" (ngModelChange)="refreshForm($event)"  id="expensefor"
     formControlName="expensefor">
-      <label nz-radio-button nzValue="Project">Project</label>
-      <label nz-radio-button nzValue="Department">Department</label>
-      <label nz-radio-button nzValue="Business Area">Business Area</label>
+      <label nz-radio-button nzValue="Project">{{
+        "form.expenseReimburse.project" | translate
+      }}</label>
+      <label nz-radio-button nzValue="Department">{{
+        "form.expenseReimburse.department " | translate
+      }}</label>
+      <label nz-radio-button nzValue="Business Area">{{
+        "form.expenseReimburse.businessArea " | translate
+      }}</label>
     </nz-radio-group>
   </nz-form-item>
 

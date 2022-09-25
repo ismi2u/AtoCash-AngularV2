@@ -48,7 +48,8 @@
 		"action": "Action",
 		"employees": "Employees",
 		"travelRequest": "Travel Request",
-		"expenseReimburse": "Expense Reimburse",
+		"expenseReimburse": "Exp.Rem Department",
+		"expenseReimburseBA": "Exp.Rem Bus.Area",
 		"status": "Status Types",
 		"currency": "Currency",
 		"projectManagement": "Project Management",
@@ -107,7 +108,8 @@
 			"taxNo":"Tax No.",
 			"NoOfDays":"No Of Days",
 			"StartDate":"Start Time",
-			"EndDate":"End Time"
+			"EndDate":"End Time",		 
+			"businessArea":"Business Area"
 		},
 		"status": {
 			"status": "Status"
