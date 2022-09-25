@@ -17,6 +17,7 @@ export class DashboardComponent implements OnInit {
 	cashRequest = null;
 	travelRequest = null;
 	expenseReimburse = null;
+	expenseReimburseBA=null;
 	employeeBalance = 0;
 	employeeCurrency = 'INR';
 	balance = null;
@@ -91,6 +92,7 @@ export class DashboardComponent implements OnInit {
 		this.getCashRequestData();
 		this.getExpenseRequestData(true);
 		this.getTravelRequestData(true);
+		this.getExpenseRequestDataforBusinessArea(true);
 	}
 
 	getCashRequestData() {
@@ -113,6 +115,18 @@ export class DashboardComponent implements OnInit {
 				this.expenseReimburse = response.data;
 				if (!initial)
 					this.updateChartData(response.data, 'heading.expenseReimburse');
+				this.commonService.loading.next(false);
+			});
+	}
+
+	getExpenseRequestDataforBusinessArea(initial) {
+		this.commonService.loading.next(true);
+		this.expenseRequestService
+			.getExpenseRequestCountBusinessArea(this.commonService.getUser().empId)
+			.subscribe((response: any) => {
+				this.expenseReimburseBA = response.data;
+				if (!initial)
+					this.updateChartData(response.data, 'heading.expenseReimburseBA');
 				this.commonService.loading.next(false);
 			});
 	}
@@ -141,6 +155,9 @@ export class DashboardComponent implements OnInit {
 				break;
 			case 'expenseRequest':
 				this.getExpenseRequestData(false);
+				break;
+			case 'expenseRequestBA':
+				this.getExpenseRequestDataforBusinessArea(false);
 				break;
 		}
 	}

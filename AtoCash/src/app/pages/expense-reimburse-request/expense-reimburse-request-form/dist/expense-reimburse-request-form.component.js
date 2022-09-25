@@ -100,7 +100,13 @@ var ExpenseReimburseRequestFormComponent = /** @class */ (function () {
         this.expenseReimburseService.addDocuments(formData).subscribe(function (response) {
             _this.responseFileList = response.data;
             _this.modal.close({
-                data: __assign(__assign({}, _this.form.value), { taxAmount: Number(_this.form.controls['taxAmount'].value), documents: response.data, index: !_this.data ? null : _this.data.index }),
+                data: __assign(__assign({}, _this.form.value), { 
+                    taxAmount: Number(_this.form.controls['taxAmount'].value), 
+                    documents: response.data, 
+                    expStrtDate:_this.form.controls['NoOfDaysDate'][0].value,
+                    expEndDate:_this.form.controls['NoOfDaysDate'][1].value,
+                    expNoOfDays:_this.form.controls['NoOfDays'][1].value,
+                    index: !_this.data ? null : _this.data.index }),
                 type: !_this.data ? 'add' : 'edit'
             });
         }, function (err) {
@@ -112,6 +118,7 @@ var ExpenseReimburseRequestFormComponent = /** @class */ (function () {
         }
     };
     ExpenseReimburseRequestFormComponent.prototype.ngOnInit = function () {
+        console.log(this.data);
         var _this = this;
         this.expenseTypeService.getExpenseTypesList().subscribe(function (data) {
             _this.expenseType = data.data;
@@ -151,11 +158,14 @@ var ExpenseReimburseRequestFormComponent = /** @class */ (function () {
                 description: this.data.description,
                 taxNo:this.data.taxNo,
                 NoOfDays:this.data.expNoOfDays,
-				NoOfDaysDate:this.data.expStrtDate
+				NoOfDaysDate:[this.data.expStrtDate,this.data.expEndDate]
             };
+
             if (this.data.documents && this.data.documents.length > 0) {
                 this.fileList = this.data.documents.map(function (document) { return (__assign(__assign({}, document), { name: document.actualFileName })); });
             }
+
+
             this.form.setValue(formData);
         }
         this.form.controls['tax'].valueChanges.subscribe(function (data) {

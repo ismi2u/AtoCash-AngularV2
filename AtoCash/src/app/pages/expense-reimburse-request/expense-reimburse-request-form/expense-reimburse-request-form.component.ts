@@ -14,6 +14,8 @@ import { ExpenseReimburseRequestService } from 'src/app/services/expense-reimbur
 import { NzModalRef } from 'ng-zorro-antd/modal';
 import { constant } from 'src/app/constant/constant';
 import { ExpenseCategoriesService } from 'src/app/services/expense-categories.service';
+import { analyzeAndValidateNgModules } from '@angular/compiler';
+import { objectEach } from 'highcharts';
 
 @Component({
 	selector: 'app-expense-reimburse-form',
@@ -99,9 +101,10 @@ export class ExpenseReimburseRequestFormComponent implements OnInit {
 		});
 
 		this.expenseReimburseService.totalClaimAmount.next(0);
-		this.expenseTypeService.getExpenseTypesList().subscribe((data: any) => {
+		
+		/*this.expenseTypeService.getExpenseTypesList().subscribe((data: any) => {
 			this.expenseType = data.data;
-		});
+		});*/
 
 		this.taskService.getTasksList().subscribe((response: any) => {
 			this.tasks = response.data;
@@ -141,7 +144,7 @@ export class ExpenseReimburseRequestFormComponent implements OnInit {
 				description: this.data.description,
 				taxNo: this.data.taxNo,
 				NoOfDays:this.data.expNoOfDays,
-				NoOfDaysDate:this.data.expStrtDate
+				NoOfDaysDate:[this.data.expStrtDate,this.data.expEndDate]
 			};
 			if (this.data.documents && this.data.documents.length > 0) {
 				this.fileList = this.data.documents.map((document) => ({
@@ -186,6 +189,23 @@ export class ExpenseReimburseRequestFormComponent implements OnInit {
 		this.form.controls['taxAmount'].disable();
 	}
 
+	selectexpenseCategories = (event) =>
+	{
+		this.expenseCategoriesService.getExpenseCategoryById(event).subscribe((response:any)=>{
+			this.expenseCategoriesList = response.data
+		})
+	}
+	
+
+	selectExpenseType = (event) =>{
+		this.expenseType=[];
+		
+		this.expenseTypeService.getExpenseTypeForExpenseCaegoryId(event).subscribe((data: any) => {
+			this.expenseType = data.data
+		});
+
+	};
+
 	selectProject = (event) => {
 		this.subProjectService
 			.getSubProjectListByProject(event)
@@ -202,12 +222,6 @@ export class ExpenseReimburseRequestFormComponent implements OnInit {
 			});
 	};
 
-	selectexpenseCategories = (event) =>
-	{
-		this.expenseCategoriesService.getExpenseCategoryById(event).subscribe((response:any)=>{
-			this.expenseCategoriesList = response.data
-		})
-	}
 	
 	disabledDate = (vale: Date): boolean => {
 		const date = new Date();

@@ -84,6 +84,7 @@
 			"country": "بلد العمله"
 		},
 		"expenseReimburse": {
+			"expensefor": "تكلفه تخص",
 			"expenseReimburseAmount": "قيمة التعويض النقدي",
 			"enableProject": "تفعيل مشروع",
 			"project": "المشروع",
@@ -99,7 +100,13 @@
 			"taxAmount": "قيمة الضريبه",
 			"title": " اسم التكلفه",
 			"employee": " الموظف",
-			"location": "المكان"
+			"location": "المكان",
+			"department": "اداره",
+			"businessArea":"جهة العمل",
+			"taxNo":"الرقم الضريبي",
+			"NoOfDays":"عدد الايام",
+			"StartDate":"تاريخ البدء",
+			"EndDate":"تاريخ الانتهاء"		 
 		},
 		"status": {
 			"status": "الحاله"

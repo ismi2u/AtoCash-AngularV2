@@ -15,6 +15,7 @@
 			id="expenseCategoryId"
 			formControlName="expenseCategoryId"
 			[nzPlaceHolder]="'form.expenseType.expenseCategory' | translate"
+			(ngModelChange)="selectExpenseType($event)"
 		>
 			<nz-option
 			*ngFor="let option of expenseCategoriesList"
