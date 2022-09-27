@@ -71,7 +71,9 @@
 		"settlementFrom": "من",
 		"settlementTo": "الي",
 		"pendingApproval": "موافقات قيد الانتظار",
-        "pendingSettlement" : "تحويلات قيد الانتظار"
+        "pendingSettlement" : "تحويلات قيد الانتظار",
+		"expenseReimburseDepartment": "Expense Reimburse Department",
+		"expenseReimburseBusiness": "Expense Reimburse Business"
 	},
 	"form": {
 		"disburse": {
@@ -319,7 +321,8 @@
 			"claimAmount": "القيمه المطلوبه",
 			"costCenter": "مركز التكلفه",
 			"invoiceDate": "تاريخ الفاتوره",
-			"expenseType": "نوع التكلفه"
+			"expenseType": "نوع التكلفه",
+			"businessArea": "جهات العمل"
 		},
 		"costCenter": {
 			"costCenterCode": "الرمز",
@@ -417,6 +420,7 @@
 				"expenseName": "نوع التكلفه",
 				"claimAmount": "قيمة التكلفه",
 				"department": "الاداره",
+				"businessArea":"جهات العمل",
 				"project": "المشروع",
 				"requestDate": "تاريخ الطلب",
 				"id": "رقم الطلب",
@@ -512,7 +516,8 @@
 			"accountNo": "رقم الحساب",
 			"cardNo": "رقم البطاقه",
 			"expenseId": "رقم المصروف",
-			"pettyCashId": "رقم المصروف النثري"
+			"pettyCashId": "رقم المصروف النثري",
+			"businessArea":"جهات العمل"
 		},
 		"filters": {
 			"reports": {
@@ -550,7 +555,8 @@
 				"male": "ذكر",
 				"female": "انثي",
 				"others": "غير ذلك",
-				"myReports": "تقاريري"
+				"myReports": "تقاريري",
+				"businessArea":"جهات العمل"
 			}
 		}
 	},

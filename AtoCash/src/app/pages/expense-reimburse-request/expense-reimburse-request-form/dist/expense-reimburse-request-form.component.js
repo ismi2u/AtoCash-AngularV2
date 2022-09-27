@@ -78,6 +78,13 @@ var ExpenseReimburseRequestFormComponent = /** @class */ (function () {
                     _this.expenseCategoriesList = response.data;
                 });                
         };
+
+        this.selectExpenseType = function (event) {
+            _this.expenseType=[];            
+            _this.expenseTypeService.getExpenseTypeForExpenseCaegoryId(event).subscribe(function(response) {
+                _this.expenseType = response.data
+            });
+        };
         
         this.disabledDate = function (vale) {
             var date = new Date();
@@ -120,15 +127,16 @@ var ExpenseReimburseRequestFormComponent = /** @class */ (function () {
     ExpenseReimburseRequestFormComponent.prototype.ngOnInit = function () {
         console.log(this.data);
         var _this = this;
-        this.expenseTypeService.getExpenseTypesList().subscribe(function (data) {
-            _this.expenseType = data.data;
-        });
+        
         this.taskService.getTasksList().subscribe(function (response) {
             _this.tasks = response.data;
         });
         this.expenseCategories.getExpenseCategoriesList().subscribe(function(response){
             _this.expenseCategoryId=response.data;
         })
+        this.expenseTypeService.getExpenseTypesList().subscribe(function (response) {
+            _this.expenseType = response.data;
+        });
         this.form = this.fb.group({
             expenseCategoryId: [null, [forms_1.Validators.required]],
             invoiceNo: [null, [forms_1.Validators.required]],

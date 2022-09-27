@@ -21,6 +21,7 @@ export class ExpenseReimburseRequestListComponent implements OnInit {
 		'tableHeader.expenseReimburse.list.id',
 		'tableHeader.expenseReimburse.list.expenseName',
 		'tableHeader.expenseReimburse.list.department',
+		'tableHeader.expenseReimburse.list.businessArea',
 		'tableHeader.expenseReimburse.list.project',
 		'tableHeader.expenseReimburse.list.claimAmount',
 		'tableHeader.expenseReimburse.list.status',

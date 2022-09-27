@@ -166,12 +166,21 @@
 					[nzTitle]="'components.requestDetails.workTask' | translate"
 					>{{ requestDetails.workTaskName }}
 				</nz-descriptions-item>
+				
 				<nz-descriptions-item
 					*ngIf="requestDetails?.departmentName"
 					[nzTitle]="'components.requestDetails.department' | translate"
 				>
 					{{ requestDetails.departmentName }}
 				</nz-descriptions-item>
+
+				<nz-descriptions-item
+					*ngIf="requestDetails?.businessArea"
+					[nzTitle]="'components.requestDetails.businessArea' | translate"
+				>
+					{{ requestDetails.businessArea }}
+				</nz-descriptions-item>
+
 				<nz-descriptions-item
 					*ngIf="requestDetails?.comments"
 					[nzTitle]="'components.requestDetails.comments' | translate"

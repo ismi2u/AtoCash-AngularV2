@@ -114,7 +114,7 @@ export class DashboardComponent implements OnInit {
 			.subscribe((response: any) => {
 				this.expenseReimburse = response.data;
 				if (!initial)
-					this.updateChartData(response.data, 'heading.expenseReimburse');
+					this.updateChartData(response.data, 'heading.expenseReimburseDepartment');
 				this.commonService.loading.next(false);
 			});
 	}
@@ -126,7 +126,7 @@ export class DashboardComponent implements OnInit {
 			.subscribe((response: any) => {
 				this.expenseReimburseBA = response.data;
 				if (!initial)
-					this.updateChartData(response.data, 'heading.expenseReimburseBA');
+					this.updateChartData(response.data, 'heading.expenseReimburseBusiness');
 				this.commonService.loading.next(false);
 			});
 	}

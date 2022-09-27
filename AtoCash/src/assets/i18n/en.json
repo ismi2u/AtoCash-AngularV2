@@ -48,8 +48,7 @@
 		"action": "Action",
 		"employees": "Employees",
 		"travelRequest": "Travel Request",
-		"expenseReimburse": "Exp.Rem Department",
-		"expenseReimburseBA": "Exp.Rem Bus.Area",
+		"expenseReimburse": "Expense Reimburse",
 		"status": "Status Types",
 		"currency": "Currency",
 		"projectManagement": "Project Management",
@@ -72,7 +71,9 @@
 		"settlementFrom": "From",
 		"settlementTo": "To",
 		"pendingApproval": "Pending Approvals",
-        "pendingSettlement" : "Pending Settlements"
+        "pendingSettlement" : "Pending Settlements",		
+		"expenseReimburseDepartment": "Expense Reimburse Department",
+		"expenseReimburseBusiness": "Expense Reimburse Business"
 	},
 	"form": {
 		"disburse": {
@@ -324,7 +325,8 @@
 			"claimAmount": "Claim Amount",
 			"costCenter": "Cost Center",
 			"invoiceDate": "Invoice Date",
-			"expenseType": "Expense Type"
+			"expenseType": "Expense Type",
+			"businessArea":"Business"
 		},
 		"costCenter": {
 			"costCenterCode": "Cost Center Code",
@@ -426,6 +428,7 @@
 				"expenseName": "Expense Name",
 				"claimAmount": "Claim Amount",
 				"department": "Department",
+				"businessArea":"Business",
 				"project": "Project",
 				"requestDate": "Request Date",
 				"id": "Id",
@@ -521,7 +524,8 @@
 			"accountNo": "Account.No",
 			"cardNo": "Card.No",
 			"expenseId": "Expense Id",
-			"pettyCashId": "Petty Cash Id"
+			"pettyCashId": "Petty Cash Id",
+			"businessArea":"Business"
 		},
 		"filters": {
 			"reports": {
@@ -559,7 +563,8 @@
 				"male": "Male",
 				"female": "Female",
 				"others": "Others",
-				"myReports": "My Reports"
+				"myReports": "My Reports",
+				"businessArea":"Business"
 			}
 		}
 	},

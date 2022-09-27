@@ -482,6 +482,9 @@
 				{{ limitString(data.departmentName) }}
 			</td>
 			<td *ngIf="data && formName == 'expenseReimburseList'">
+				{{ limitString(data.businessArea) }}
+			</td>
+			<td *ngIf="data && formName == 'expenseReimburseList'">
 				{{ data.projectName }}
 			</td>
 			<td *ngIf="data && formName == 'expenseReimburseList'">
@@ -558,6 +561,9 @@
 			</td>
 			<td *ngIf="data && formName == 'reports'">
 				{{ data.departmentName || data.department  }}
+			</td>
+			<td *ngIf="data && formName == 'reports'">
+				{{ data.businessArea  }}
 			</td>
 			<td *ngIf="(data && !data?.doj) && formName == 'reports'">
 				{{ data.projectName || data.project  }}
