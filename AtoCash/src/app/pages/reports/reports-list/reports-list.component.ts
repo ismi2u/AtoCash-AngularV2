@@ -29,6 +29,7 @@ export class ReportsListComponent implements OnInit {
 		'tableHeader.inbox.employee',
 		'tableHeader.inbox.costCenter',
 		'tableHeader.inbox.department',
+		'tableHeader.inbox.businessArea',
 		'tableHeader.inbox.project',
 		'tableHeader.inbox.requestDate',
 		'tableHeader.inbox.status',
@@ -93,7 +94,7 @@ export class ReportsListComponent implements OnInit {
 
 	getExpenseRequestRowData = (event) => {
 		this.requestService
-			.getExpenseRequestStatus(event.id)
+			.getExpenseRequestStatus(event.expenseReimburseReqId)
 			.subscribe((statusResponse: any) => {
 				this.requestApprovalFlow = statusResponse.data;
 				this.expenseRequestService
@@ -153,6 +154,7 @@ export class ReportsListComponent implements OnInit {
 				'tableHeader.inbox.employee',
 				'tableHeader.inbox.costCenter',
 				'tableHeader.inbox.department',
+				'tableHeader.inbox.businessArea',
 				'tableHeader.inbox.project',
 				'tableHeader.inbox.requestDate',
 				'tableHeader.inbox.claimAmount',
@@ -164,6 +166,7 @@ export class ReportsListComponent implements OnInit {
 				'tableHeader.inbox.employee',
 				'tableHeader.inbox.costCenter',
 				'tableHeader.inbox.department',
+				'tableHeader.inbox.businessArea',
 				'tableHeader.inbox.project',
 				'tableHeader.inbox.requestDate',
 				'tableHeader.inbox.status',
@@ -187,6 +190,7 @@ export class ReportsListComponent implements OnInit {
 				'tableHeader.inbox.employee',
 				'tableHeader.inbox.costCenter',
 				'tableHeader.inbox.department',
+				'tableHeader.inbox.businessArea',
 				'tableHeader.inbox.project',
 				'tableHeader.inbox.invoiceDate',
 				'tableHeader.inbox.claimAmount',
