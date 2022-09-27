@@ -72,8 +72,8 @@
 		"settlementTo": "To",
 		"pendingApproval": "Pending Approvals",
         "pendingSettlement" : "Pending Settlements",		
-		"expenseReimburseDepartment": "Expense Reimburse Department",
-		"expenseReimburseBusiness": "Expense Reimburse Business"
+		"expenseReimburseDepartment": "Dept. Reimburse",
+		"expenseReimburseBusiness": "Business Reimburse"
 	},
 	"form": {
 		"disburse": {
