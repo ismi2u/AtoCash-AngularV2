@@ -390,6 +390,12 @@
 					{{ requestDetails.department }}
 				</nz-descriptions-item>
 				<nz-descriptions-item
+					*ngIf="requestDetails?.businessArea"
+					[nzTitle]="'components.requestDetails.businessArea' | translate"
+				>
+					{{ requestDetails.businessArea }}
+				</nz-descriptions-item>
+				<nz-descriptions-item
 					*ngIf="requestDetails?.recordDate"
 					[nzTitle]="'components.requestDetails.recordDate' | translate"
 				>
