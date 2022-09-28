@@ -23,6 +23,7 @@ export class DisburseListComponent implements OnInit {
 		'tableHeader.disburse.id',
 		'tableHeader.disburse.employee',
 		'tableHeader.disburse.department',
+		'tableHeader.disburse.businessArea',
 		'tableHeader.disburse.project',
 		'tableHeader.disburse.claimAmount',
 		'tableHeader.disburse.status',

@@ -278,7 +278,8 @@
 			"department": "Department",
 			"project": "Project",
 			"claimAmount": "Claim Amount",
-			"status": "Settlement Status"
+			"status": "Settlement Status",
+			"businessArea":"Business Area"
 		},
 		"travel": {
 			"startDate": "Start Date",
@@ -326,7 +327,7 @@
 			"costCenter": "Cost Center",
 			"invoiceDate": "Invoice Date",
 			"expenseType": "Expense Type",
-			"businessArea":"Business"
+			"businessArea":"Business Area"
 		},
 		"costCenter": {
 			"costCenterCode": "Cost Center Code",
@@ -428,7 +429,7 @@
 				"expenseName": "Expense Name",
 				"claimAmount": "Claim Amount",
 				"department": "Department",
-				"businessArea":"Business",
+				"businessArea":"Business Area",
 				"project": "Project",
 				"requestDate": "Request Date",
 				"id": "Id",
@@ -525,7 +526,7 @@
 			"cardNo": "Card.No",
 			"expenseId": "Expense Id",
 			"pettyCashId": "Petty Cash Id",
-			"businessArea":"Business"
+			"businessArea":"Business Area"
 		},
 		"filters": {
 			"reports": {
@@ -564,7 +565,7 @@
 				"female": "Female",
 				"others": "Others",
 				"myReports": "My Reports",
-				"businessArea":"Business"
+				"businessArea":"Business Area"
 			}
 		}
 	},
