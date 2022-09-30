@@ -312,7 +312,8 @@
 		},
 		"inbox": {
 			"employee": "الموظف",
-      "department": "الاداره",
+			"generalLedger":"الدفتر العام",
+     		"department": "الاداره",
 			"project": "المشروع",
 			"requestDate": "تاريخ الطلب",
 			"id": "رقم الطلب",

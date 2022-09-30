@@ -317,6 +317,7 @@
 		},
 		"inbox": {
 			"employee": "Employee",
+			"generalLedger": "General Ledger",
 			"department": "Department",
 			"project": "Project",
 			"requestDate": "Request Date",
