@@ -75,6 +75,17 @@
 				<i nz-icon nzType="calculator" nzTheme="outline"></i>
 				<span>{{ 'heading.expenseType' | translate }}</span>
 			</li>
+			
+			<li
+				*ngIf="canOrganize() || canOrganizeAndManage()"
+				nz-menu-item
+				nzMatchRouter
+				routerLink="/bank"
+			>
+				<i nz-icon nzType="calculator" nzTheme="outline"></i>
+				<span>{{ 'heading.bank' | translate }}</span>
+			</li>
+
 			<li
 				*ngIf="canOrganize() || canOrganizeAndManage()"
 				nz-submenu

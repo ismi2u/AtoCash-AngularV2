@@ -97,6 +97,45 @@
       </nz-form-item>
 
       <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzRequired nzFor="bankId">{{
+          "form.employee.bankName" | translate
+        }}</nz-form-label>
+  
+        <nz-form-control [nzSpan]="15" [nzErrorTip]="'validation.required' |translate ">
+          <nz-select
+            nzShowSearch
+            nzAllowClear
+            id="bankId"
+            formControlName="bankId"
+            [nzPlaceHolder]="'form.employee.bankName' | translate"
+          >
+            <nz-option
+              *ngFor="let option of BankList"
+              [nzValue]="option.id"
+              [nzLabel]="option.bankName"
+            ></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+
+      <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzFor="iban">{{
+          "form.employee.iban" | translate
+        }}</nz-form-label>
+
+        <nz-form-control [nzSpan]="15" [nzErrorTip]="bankErrorTpl">
+          <input
+            id="iban"
+            formControlName="iban"
+            type="text"
+            nz-input
+            [placeholder]="'form.employee.iban' | translate"
+          />
+        </nz-form-control>
+      </nz-form-item>
+
+      
+      <nz-form-item>
         <nz-form-label [nzSpan]="7" nzRequired nzFor="bankAccount">{{
           "form.employee.bankAccount" | translate
         }}</nz-form-label>

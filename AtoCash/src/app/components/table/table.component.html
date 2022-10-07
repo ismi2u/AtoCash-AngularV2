@@ -231,6 +231,20 @@
 				{{ data.statusType }}
 			</td>
 
+			<!-- Bank -->
+			<td *ngIf="data.id && formName == 'bank'">
+				{{ data.id }}
+			</td>
+			<td *ngIf="data.bankName && formName == 'bank'">
+				{{ data.bankName }}
+			</td>
+			<td *ngIf="data.bankDesc && formName == 'bank'">
+				{{ data.bankDesc }}
+			</td>
+			<td *ngIf="data.statusType && formName == 'bank'">
+				{{ data.statusType }}
+			</td>
+
 			<!-- Approval Levels -->
 			<td *ngIf="data.level && formName == 'level'">{{ data.level }}</td>
 			<td *ngIf="data.levelDesc && formName == 'level'">
