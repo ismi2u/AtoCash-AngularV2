@@ -96,7 +96,7 @@ export class ExpenseReimburseRequestFormComponent implements OnInit {
 
 	ngOnInit(): void {
 
-		this.expenseCategoriesService.getExpenseCategoriesList().subscribe((data: any) => {
+		this.expenseCategoriesService.getExpenseCategoriesListSelected(true).subscribe((data: any) => {
 			this.expenseCategoriesList = data.data;
 		});
 

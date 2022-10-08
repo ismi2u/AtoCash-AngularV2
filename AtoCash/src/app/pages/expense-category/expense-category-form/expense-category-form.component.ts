@@ -16,6 +16,8 @@ export class ExpenseCategoryFormComponent implements OnInit {
 	recordId: any;
 	mode: any = 'add';
 	status = [];
+	isBusinessCategory=true;
+
 	submitForm(): void {
 		this.commonService.loading.next(true)
 		for (const i in this.form.controls) {
@@ -83,6 +85,7 @@ export class ExpenseCategoryFormComponent implements OnInit {
 		this.form = this.fb.group({
 			expenseCategoryName: [null, [Validators.required]],
 			expenseCategoryDesc: [null, [Validators.required]],
+			isBusinessCategory:[null, [Validators.required]],
 			statusTypeId: [null, [Validators.required]],
 		});
 	}

@@ -42,9 +42,30 @@
 					/>
 				</nz-form-control>
 			</nz-form-item>
+
+			<nz-form-item>
+				<nz-form-label [nzSpan]="7" nzRequired nzFor="isBusinessCategory">{{
+					'form.expenseCategory.isBusinessCategory' | translate
+				}}</nz-form-label>
+
+				<nz-form-control
+					[nzSpan]="15"
+					[nzErrorTip]="'validation.required' | translate"
+				>
+				
+				<nz-switch
+				nzSize="small"
+				[(ngModel)]="isBusinessCategory"
+				formControlName="isBusinessCategory" id="isBusinessCategory"></nz-switch>
+
+				 
+				</nz-form-control>
+			</nz-form-item>
+
+			
 			<nz-form-item>
 				<nz-form-label [nzSpan]="7" nzRequired nzFor="status">{{
-					'form.status.status' | translate
+					'form.expenseCategory.status' | translate
 				}}</nz-form-label>
 
 				<nz-form-control
@@ -56,7 +77,7 @@
 						nzAllowClear
 						id="statusTypeId"
 						formControlName="statusTypeId"
-						[nzPlaceHolder]="'form.status.status' | translate"
+						[nzPlaceHolder]="'form.expenseCategory.status' | translate"
 					>
 						<nz-option
 							*ngFor="let option of status"
@@ -66,6 +87,8 @@
 					</nz-select>
 				</nz-form-control>
 			</nz-form-item>
+			
+			
 			<nz-form-item>
 				<nz-form-control class="action-control">
 					<button nz-button nzType="primary" [disabled]="!form.valid">
