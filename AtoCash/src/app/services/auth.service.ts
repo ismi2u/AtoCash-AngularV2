@@ -33,7 +33,7 @@ export class AuthService {
 						(response.data && !response.data.role.length)
 					) {
 						response.data && !response.data.role.length
-							? this.commonService.createNotification('error', 'Unautorized')
+							? this.commonService.createNotification('error', 'Unauthorized')
 							: null;
 					} else {
 						if (response && response.data) {

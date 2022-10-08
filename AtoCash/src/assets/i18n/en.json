@@ -191,7 +191,9 @@
 		},
 		"expenseCategory": {
 			"expenseCategoryName": "Name",
-			"expenseCategoryDesc": "Description"
+			"expenseCategoryDesc": "Description",
+			"status":"Status",
+			"isBusinessCategory":"Is Business Category"
 		},
 		"expenseType": {
 			"expenseCategory": "Expense Category",

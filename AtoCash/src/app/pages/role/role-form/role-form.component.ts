@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
-import { CostService } from 'src/app/services/cost.service';
 import { RolesService } from 'src/app/services/roles.service';
 import { CommonService } from 'src/app/services/common.service';
 
@@ -15,7 +14,6 @@ export class RoleFormComponent implements OnInit {
 	form!: FormGroup;
 	recordId: any;
 	mode: any = 'add';
-	costCenterList = [];
 	isStoreRole=true;
 
 	constructor(
@@ -23,7 +21,6 @@ export class RoleFormComponent implements OnInit {
 		private snapshot: ActivatedRoute,
 		private roleService: RolesService,
 		private router: Router,
-		private costCenterService: CostService,
 		private translate: TranslateService,
 		private commonService: CommonService,
 	) {}
@@ -59,11 +56,7 @@ export class RoleFormComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-		this.commonService.loading.next(true);
-		this.costCenterService.getCostCenterList().subscribe((response: any) => {
-			this.costCenterList = response.data;
-		});
-
+		
 		this.snapshot.params.subscribe((param) => {
 			if (param.type === 'edit') {
 				this.commonService.loading.next(false);
