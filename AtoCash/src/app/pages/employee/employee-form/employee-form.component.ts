@@ -12,6 +12,7 @@ import { EmployeeService } from 'src/app/services/employee.service';
 import { RolesService } from 'src/app/services/roles.service';
 import { BusinessAreaService } from 'src/app/services/businessarea.service';
 import { StatusService } from 'src/app/services/status.service'; 
+import {BankService} from 'src/app/services/bank.service';
 
 
 @Component({
@@ -33,6 +34,7 @@ export class EmployeeFormComponent implements OnInit {
 	status = [];
 	currencies = [];
 	BAroles=[];
+	BankList=[];
 
 	constructor(
 		private fb: FormBuilder,
@@ -48,6 +50,7 @@ export class EmployeeFormComponent implements OnInit {
 		private currencyService: CurrencyService,
 		private commonService: CommonService, 
 		private businessAreaService: BusinessAreaService,
+		private bankService:BankService,
 	) {}
 
 	getButtonLabel = () => {
@@ -127,6 +130,10 @@ export class EmployeeFormComponent implements OnInit {
 			this.BAroles = response.data;
 		});
 
+		this.bankService.getBankList().subscribe((response: any) => {
+			this.BankList = response.data;
+		});
+
 		this.snapshot.params.subscribe((param) => {
 			if (param.type === 'edit') {
 				this.mode = param.type;
@@ -142,6 +149,7 @@ export class EmployeeFormComponent implements OnInit {
 						delete response.data.approvalGroup;
 						delete response.data.statusType;
 						delete response.data.businessArea;
+						delete response.data.bankName;
 						this.form.setValue(response.data);
 						this.commonService.loading.next(false);
 					});
@@ -160,6 +168,8 @@ export class EmployeeFormComponent implements OnInit {
 				[Validators.required],
 			],
 			empCode: [null, [Validators.required]],
+			bankId: [null, [Validators.required]],
+			iban: [null],
 			bankAccount: [
 				null,
 				[

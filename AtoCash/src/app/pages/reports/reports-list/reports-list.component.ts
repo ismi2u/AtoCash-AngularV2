@@ -189,6 +189,7 @@ export class ReportsListComponent implements OnInit {
 				'tableHeader.inbox.id',
 				'tableHeader.inbox.employee',
 				'tableHeader.inbox.costCenter',
+				'tableHeader.inbox.generalLedger',
 				'tableHeader.inbox.department',
 				'tableHeader.inbox.businessArea',
 				'tableHeader.inbox.project',

@@ -41,6 +41,7 @@
 		"expenseType": "Expense Types",
 		"expenseCategory": "Expense Categories",
 		"expenseStatus": "Expense Status",
+		"bank":"Bank Master",
 		"cashAdvanceStatus": "Cash Advance",
 		"myInbox": "My Inbox",
 		"report": "Reports",
@@ -198,6 +199,12 @@
 			"expenseTypeName": "Expense Type",
 			"expenseTypeDescription": "Description"
 		},
+		"bank":{
+			"id":"Id",
+			"bankName":"Bank Name",
+			"bankDesc":"Description",
+			"status": "Status"
+		},
 		"approvalLevel": {
 			"level": "Level",
 			"levelDescription": "Description"
@@ -241,7 +248,9 @@
 			"doj": "Date Joined",
 			"nationality": "Nationality",
 			"status": "Status",
-			"currency": "Currency"
+			"currency": "Currency",
+			"bankName":"Bank Name",
+			"iban":"IBAN"
 		},
 		"project": {
 			"projectName": "Name",
@@ -317,6 +326,7 @@
 		},
 		"inbox": {
 			"employee": "Employee",
+			"generalLedger": "General Ledger",
 			"department": "Department",
 			"project": "Project",
 			"requestDate": "Request Date",
@@ -373,6 +383,12 @@
 			"generalLedgerAccountName": "General Ledger Account Name",
 			"expenseTypeName": "Expense Type",
 			"expenseTypeDescription": "Description",
+			"status": "Status"
+		},
+		"bank":{
+			"id":"Id",
+			"bankName":"Bank Name",
+			"bankDesc":"Description",
 			"status": "Status"
 		},
 		"approvalLevel": {
