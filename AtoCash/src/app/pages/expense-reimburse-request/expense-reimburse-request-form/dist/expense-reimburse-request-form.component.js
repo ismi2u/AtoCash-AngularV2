@@ -74,14 +74,13 @@ var ExpenseReimburseRequestFormComponent = /** @class */ (function () {
         };
 
         this.selectexpenseCategories = function (event)  {
-            this.expenseCategoriesService.getExpenseCategories(event).subscribe(function (response) {
+            _this.expenseCategoriesService.getExpenseCategories(event).subscribe(function (response) {
                     _this.expenseCategoriesList = response.data;
                 });                
         };
 
         this.selectExpenseType = function (event) {
-            _this.expenseType=[];            
-            _this.expenseTypeService.getExpenseTypeForExpenseCaegoryId(event).subscribe(function(response) {
+           _this.expenseTypeService.getExpenseTypeForExpenseCaegoryId(event).subscribe(function(response) {
                 _this.expenseType = response.data
             });
         };
@@ -125,7 +124,7 @@ var ExpenseReimburseRequestFormComponent = /** @class */ (function () {
         }
     };
     ExpenseReimburseRequestFormComponent.prototype.ngOnInit = function () {
-        console.log(this.data);
+         
         var _this = this;
         
         this.taskService.getTasksList().subscribe(function (response) {

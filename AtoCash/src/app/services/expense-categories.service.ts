@@ -29,7 +29,7 @@ export class ExpenseCategoriesService {
 
 	getExpenseCategoriesListSelected = (isBussCategory:any) => {
 		return this.http.get(
-			`${this.commonService.getApi()}/api/ExpenseCategories/SelectedExpenseCategoriesForDropdown?isBussCategory=${isBussCategory}`,
+			`${this.commonService.getApi()}/api/ExpenseCategories/GetSelectedExpenseCategoriesForDropdown?isBussCategory=${isBussCategory}`,
 		);
 	};
 

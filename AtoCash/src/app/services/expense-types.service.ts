@@ -30,7 +30,7 @@ export class ExpenseTypesService {
 	getExpenseTypeById = (id: any) =>
 		this.http.get(`${this.commonService.getApi()}/api/ExpenseTypes/GetExpenseType/${id}`);
 
-	getExpenseTypeForExpenseCaegoryId = (id: any) =>
+	getExpenseTypeForExpenseCategoryId = (id: any) =>
 		this.http.get(`${this.commonService.getApi()}/api/ExpenseTypes/ExpenseTypesForExpenseCategoryId/${id}`);
 
 	updateExpenseTypeById = (id: any, data: any) =>

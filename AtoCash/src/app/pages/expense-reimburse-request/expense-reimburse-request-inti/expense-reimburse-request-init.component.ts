@@ -79,7 +79,7 @@ export class ExpenseReimburseRequestInitComponent implements OnInit {
 
 		this.form = this.fb.group({
 			currencyTypeId: [this.commonService.getUser().currencyId],
-			expenseReportTitle: ['Expense Reimburse', [Validators.required]],
+			expenseReportTitle: [null, [Validators.required]],
 			projectId: [null, [Validators.nullValidator]],
 			subProjectId: [null, [Validators.nullValidator]],
 			workTaskId: [null, [Validators.nullValidator]],
