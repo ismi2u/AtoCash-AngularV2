@@ -39,6 +39,8 @@ export class ExpenseReimburseRequestFormComponent implements OnInit {
 	expStrtDate=null;
 	expEndDate=null;
 	expNoOfDays=null;
+	selectedValue = null;
+	@Input() IBC;
 	@Input() data;
 
 	constructor(
@@ -95,13 +97,14 @@ export class ExpenseReimburseRequestFormComponent implements OnInit {
 	}
 
 	ngOnInit(): void {
-
-		this.expenseCategoriesService.getExpenseCategoriesListSelected(true).subscribe((data: any) => {
+		
+		this.expenseCategoriesService.getExpenseCategoriesListSelected(this.IBC).subscribe((data: any) => {
 			this.expenseCategoriesList = data.data;
 		});
 
 		this.expenseReimburseService.totalClaimAmount.next(0);
 		
+
 		/*this.expenseTypeService.getExpenseTypesList().subscribe((data: any) => {
 			this.expenseType = data.data;
 		});*/
@@ -155,6 +158,8 @@ export class ExpenseReimburseRequestFormComponent implements OnInit {
 			this.form.setValue(formData);
 		}
 
+		
+
 		this.form.controls['tax'].valueChanges.subscribe((data) => {
 			if (data !== 0 && this.form.controls['expenseReimbClaimAmount'].value) {
 				this.form.controls['taxAmount'].setValue(
@@ -187,6 +192,14 @@ export class ExpenseReimburseRequestFormComponent implements OnInit {
 		);
 
 		this.form.controls['taxAmount'].disable();
+
+		if (this.data) {
+			//this.selectExpenseType(this.data.expenseCategoryId);
+			this.expenseTypeService.getExpenseTypeForExpenseCategoryId(this.data.expenseCategoryId).subscribe((data: any) => {
+				this.expenseType = data.data
+			});
+			this.selectedValue=this.data.expenseTypeId;
+		}
 	}
 
 	selectexpenseCategories = (event) =>
@@ -198,9 +211,8 @@ export class ExpenseReimburseRequestFormComponent implements OnInit {
 	
 
 	selectExpenseType = (event) =>{
-		this.expenseType=[];
-		
-		this.expenseTypeService.getExpenseTypeForExpenseCaegoryId(event).subscribe((data: any) => {
+		this.selectedValue=null;
+		this.expenseTypeService.getExpenseTypeForExpenseCategoryId(event).subscribe((data: any) => {
 			this.expenseType = data.data
 		});
 

@@ -49,14 +49,16 @@
 	>
 		{{ 'button.downloadReports' | translate }}
 	</button>
-	<button
+	
+	<!--<button
 		*ngIf="formName == 'expenseReimburseData' && mode !== 'view'"
 		nz-button
 		nzType="default"
 		(click)="onMethodUpdate.emit()"
 	>
 		{{ 'button.updateExpenseMethod' | translate }}
-	</button>
+	</button>//-->
+
 	<button
 		class="request-type"
 		*ngIf="formName == 'expenseReimburseData' && mode !== 'view'"

@@ -41,6 +41,7 @@
 				id="expenseTypeId"
 				formControlName="expenseTypeId"
 				[nzPlaceHolder]="'form.expenseReimburse.expense' | translate"
+				[(ngModel)]="selectedValue"
 			>
 				<nz-option
 					*ngFor="let option of expenseType"
@@ -50,6 +51,7 @@
 			</nz-select>
 		</nz-form-control>
 	</nz-form-item>
+
 	<nz-form-item>
 		<nz-form-label [nzSpan]="7" nzRequired nzFor="invoiceNo">{{
 			'form.expenseReimburse.invoiceNo' | translate

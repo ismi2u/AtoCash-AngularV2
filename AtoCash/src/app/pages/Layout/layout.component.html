@@ -257,7 +257,7 @@
 					>
 						<i nz-icon nzType="inbox"></i>
 						{{ 'heading.inbox' | translate }}
-						<nz-badge *ngIf="requestService.inbox.length > 0" nzStatus="processing"></nz-badge>
+						<nz-badge nzSize="small" nzShowZero [nzStyle]="{ backgroundColor: '#1890ff' }" [nzOverflowCount]="9" [nzCount]="requestService.inbox.length" [nzOffset]="[5, 5]"></nz-badge>
 					</li>
 					<li *ngIf="!canOrganize()" nz-menu-item nzMatchRouter routerLink="/reports">
 						<i nz-icon nzType="file-done"></i>
