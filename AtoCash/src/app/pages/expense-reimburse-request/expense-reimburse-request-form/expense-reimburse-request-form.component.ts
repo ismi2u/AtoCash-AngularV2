@@ -149,12 +149,12 @@ export class ExpenseReimburseRequestFormComponent implements OnInit {
 				NoOfDays:this.data.expNoOfDays,
 				NoOfDaysDate:[this.data.expStrtDate,this.data.expEndDate]
 			};
-			if (this.data.documents && this.data.documents.length > 0) {
+			/*if (this.data.documents && this.data.documents.length > 0) {
 				this.fileList = this.data.documents.map((document) => ({
 					...document,
 					name: document.actualFileName,
 				}));
-			}
+			}*/
 			this.form.setValue(formData);
 		}
 

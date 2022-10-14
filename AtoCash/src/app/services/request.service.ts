@@ -14,18 +14,21 @@ export class RequestService{
   constructor(private http: HttpClient,private commonService:CommonService) {}
   
   populateInbox = () => {
-    const empId = this.commonService.getEmpId();
+    this.inbox = [];
+    const empId = this.commonService.getEmpId();    
     this.getRequestToApprove(empId).subscribe((cashAdvance:any)=>{
       this.inbox = cashAdvance.data;
       this.getTravelRequestToApprove(empId).subscribe((travelRequest:any)=>{
         this.inbox = [...this.inbox, ...travelRequest.data]
-
         this.getExpenseRequestToApprove(empId).subscribe((expense:any)=>{
-          this.inbox = [...this.inbox,...expense.data]
+          this.inbox = [...this.inbox,...expense.data];
         })
+       
       })
       
-    })
+    });
+   
+
   }
 
   getRequestToApprove = (id) => {

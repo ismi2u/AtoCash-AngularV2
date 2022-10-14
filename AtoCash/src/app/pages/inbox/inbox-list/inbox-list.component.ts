@@ -52,13 +52,14 @@ export class InboxListComponent implements OnInit {
 	) {}
 
 	ngOnInit(): void {
+		 
 		this.commonService.loading.next(true);
 		this.approvalStatusService.approvalStatus.subscribe((data) => {
 			this.availableStatus = data;
 		});
 
 		this.commonService.inboxType.subscribe((type) => {
-
+			
 			if(type !== 'travelRequest') {
 				this.requestHeaders = [
 					'tableHeader.inbox.id',
@@ -91,8 +92,9 @@ export class InboxListComponent implements OnInit {
 					break;
 				case 'expenseReimburse':
 					this.updateTableForExpense();
-			}
+			};
 		});
+		this.requestService.populateInbox();
 	}
 
 	getCashAdvanceRowData = (event) => {
@@ -221,6 +223,7 @@ export class InboxListComponent implements OnInit {
 				this.commonService.onStatusChange.next('expenseRequestUpdate');
 				this.commonService.loading.next(false);
 			});
+		
 	}
 
 	showConfirm(status, statusName): void {
@@ -293,6 +296,7 @@ export class InboxListComponent implements OnInit {
 				this.updateTableForExpense();
 				this.commonService.inboxType.next('expenseReimburse');
 		}
+		this.requestService.populateInbox();
 	}
 
 	onRowData(data) {
@@ -306,7 +310,7 @@ export class InboxListComponent implements OnInit {
 			case 'expenseReimburse':
 				this.getExpenseRequestRowData(data);
 				break;
-		}
+		};
 	}
 
 	onView(data) {
@@ -362,4 +366,6 @@ export class InboxListComponent implements OnInit {
 		this.getExpenseRequestToApprove();
 		this.formName = 'expense-reimburse-inbox';
 	}
+
+	
 }
