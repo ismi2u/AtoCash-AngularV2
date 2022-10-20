@@ -111,7 +111,8 @@
 			"NoOfDays":"No Of Days",
 			"StartDate":"Start Time",
 			"EndDate":"End Time",		 
-			"businessArea":"Business Area"
+			"businessArea":"Business Area",
+			"isVAT":"Is VAT"
 		},
 		"status": {
 			"status": "Status"
@@ -238,7 +239,7 @@
 			"approvalGroup": "Department Approval Group",
 			"role": "Department Job Role",
 			"businessAreaApprovalGroup": "Business Area AG ",
-			"businessAreaApprovalGroupP": "Business Area Area Group ",
+			"businessAreaApprovalGroupP": "Business Area Approval Group ",
 			"businessAreaRoleName": "Business Area Role",
 			"employmentType": "Employment Type",
 			"department": "Department",

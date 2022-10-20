@@ -22,6 +22,10 @@ export class AuthService {
 	login = (data: any) => {
 		const { email } = data;
 		let domain = email.split('@')[1];
+		if(domain=="foodunitco" || domain=="foodunitco1")
+		{
+			domain="foodunitco"
+		}
 		domain =  environment.baseUrl.includes('localhost') ? 'https://' : `https://${domain.split('.')[0]}.`;
 		return this.http
 			.post(
