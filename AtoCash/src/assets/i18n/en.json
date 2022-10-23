@@ -46,6 +46,7 @@
 		"myInbox": "My Inbox",
 		"report": "Reports",
 		"inbox": "My Inbox",
+		"logout": "logout",
 		"action": "Action",
 		"employees": "Employees",
 		"travelRequest": "Travel Request",
@@ -74,7 +75,8 @@
 		"pendingApproval": "Pending Approvals",
         "pendingSettlement" : "Pending Settlements",		
 		"expenseReimburseDepartment": "Dept. Reimburse",
-		"expenseReimburseBusiness": "Business Reimburse"
+		"expenseReimburseBusiness": "Business Reimburse",
+		"vatRate":"VAT Rate"
 	},
 	"form": {
 		"disburse": {
@@ -207,6 +209,10 @@
 			"bankName":"Bank Name",
 			"bankDesc":"Description",
 			"status": "Status"
+		},
+		"vatRate":{
+			"id":"Id",
+			"vatPercentage":"VAT Rate Percentage"
 		},
 		"approvalLevel": {
 			"level": "Level",
@@ -393,6 +399,10 @@
 			"bankName":"Bank Name",
 			"bankDesc":"Description",
 			"status": "Status"
+		},
+		"vatRate":{
+			"id":"Id",
+			"vatPercentage":"VAT Rate Percentage"
 		},
 		"approvalLevel": {
 			"level": "Level",

@@ -252,6 +252,14 @@
 			<td *ngIf="data.levelDesc && formName == 'level'">
 				{{ data.levelDesc }}
 			</td>
+			
+			<!-- vatRate -->
+			<td *ngIf="data.id && formName == 'vatRate'">
+				{{ data.id }}
+			</td>
+			<td *ngIf="data.vatPercentage && formName == 'vatRate'">
+				{{ data.vatPercentage }}
+			</td> 
 
 			<!-- Approval Groups -->
 			<td *ngIf="data.approvalGroupCode && formName == 'group'">
