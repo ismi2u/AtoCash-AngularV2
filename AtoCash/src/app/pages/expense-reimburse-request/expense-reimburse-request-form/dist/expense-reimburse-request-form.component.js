@@ -73,6 +73,17 @@ var ExpenseReimburseRequestFormComponent = /** @class */ (function () {
             });
         };
 
+        this.getVATRate = function (event) {
+            if(event)
+            _this.vatRateService.getVATRate(event).subscribe(function (response)  {
+                _this.form.controls['tax'].setValue(response.data.vatPercentage);
+            });
+    
+            if(!event){
+                this.form.controls['tax'].setValue(0);
+            }
+        }
+
         this.selectexpenseCategories = function (event)  {
             _this.expenseCategoriesService.getExpenseCategories(event).subscribe(function (response) {
                     _this.expenseCategoriesList = response.data;
@@ -107,6 +118,7 @@ var ExpenseReimburseRequestFormComponent = /** @class */ (function () {
             _this.responseFileList = response.data;
             _this.modal.close({
                 data: __assign(__assign({}, _this.form.value), { 
+                    tax: Number(_this.form.controls['tax'].value),
                     taxAmount: Number(_this.form.controls['taxAmount'].value), 
                     documents: response.data, 
                     expStrtDate:_this.form.controls['NoOfDaysDate'][0].value,
@@ -143,6 +155,7 @@ var ExpenseReimburseRequestFormComponent = /** @class */ (function () {
             expenseTypeId: [null, [forms_1.Validators.required]],
             expenseReimbClaimAmount: [null, [forms_1.Validators.required]],
             location: [null, [forms_1.Validators.required]],
+            isVAT:[true],
             tax: [0, [forms_1.Validators.required, forms_1.Validators.max(100)]],
             taxAmount: [null, [forms_1.Validators.required]],
             vendor: [null, [forms_1.Validators.required]],
@@ -152,6 +165,7 @@ var ExpenseReimburseRequestFormComponent = /** @class */ (function () {
 			NoOfDaysDate:[null]
         });
         if (this.data) {
+            console.log(this.data);
             var formData = {
                 expenseCategoryId:this.data.expenseCategoryId,
                 invoiceNo: this.data.invoiceNo,
@@ -159,13 +173,14 @@ var ExpenseReimburseRequestFormComponent = /** @class */ (function () {
                 expenseTypeId: this.data.expenseTypeId,
                 expenseReimbClaimAmount: this.data.expenseReimbClaimAmount,
                 location: this.data.location,
-                tax: this.data.tax,
+                tax: Number(this.data.tax),
                 taxAmount: Number(this.data.taxAmount),
                 vendor: this.data.vendor,
                 description: this.data.description,
                 taxNo:this.data.taxNo,
                 NoOfDays:this.data.expNoOfDays,
-				NoOfDaysDate:[this.data.expStrtDate,this.data.expEndDate]
+				NoOfDaysDate:[this.data.expStrtDate,this.data.expEndDate],
+                isVAT:this.data.isVAT
             };
 
             if (this.data.documents && this.data.documents.length > 0) {
@@ -192,7 +207,10 @@ var ExpenseReimburseRequestFormComponent = /** @class */ (function () {
                 _this.form.controls['taxAmount'].setValue((0).toFixed(2));
             }
         });
+        
+        this.form.controls['tax'].disable();
         this.form.controls['taxAmount'].disable();
+        
     };
     __decorate([
         core_1.Input()

@@ -14,6 +14,7 @@ import { ExpenseReimburseRequestService } from 'src/app/services/expense-reimbur
 import { NzModalRef } from 'ng-zorro-antd/modal';
 import { constant } from 'src/app/constant/constant';
 import { ExpenseCategoriesService } from 'src/app/services/expense-categories.service';
+import { VATRateService } from 'src/app/services/vat-rate.service';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { objectEach } from 'highcharts';
 
@@ -40,6 +41,7 @@ export class ExpenseReimburseRequestFormComponent implements OnInit {
 	expEndDate=null;
 	expNoOfDays=null;
 	selectedValue = null;
+	isVAT=false;
 	@Input() IBC;
 	@Input() data;
 
@@ -56,6 +58,7 @@ export class ExpenseReimburseRequestFormComponent implements OnInit {
 		private translate: TranslateService,
 		private modal: NzModalRef,
 		private expenseCategoriesService: ExpenseCategoriesService,
+		private vatRateService: VATRateService
 	) {}
 
 	getButtonLabel = () => {
@@ -75,6 +78,7 @@ export class ExpenseReimburseRequestFormComponent implements OnInit {
 				this.modal.close({
 					data: {
 						...this.form.value,
+						tax: Number(this.form.controls['tax'].value),
 						taxAmount: Number(this.form.controls['taxAmount'].value),
 						documents: response.data,
 						expStrtDate:this.expStrtDate,
@@ -128,8 +132,10 @@ export class ExpenseReimburseRequestFormComponent implements OnInit {
 			description: [null, [Validators.required]],
 			taxNo: [null, [Validators.required]],
 			NoOfDays:[null],
-			NoOfDaysDate:[null]
+			NoOfDaysDate:[null],
+			isVAT:[false]
 		});
+
 
 		this.form.controls['NoOfDays'].disable();
 		
@@ -141,7 +147,8 @@ export class ExpenseReimburseRequestFormComponent implements OnInit {
 				expenseTypeId: this.data.expenseTypeId,
 				expenseReimbClaimAmount: this.data.expenseReimbClaimAmount,
 				location: this.data.location,
-				tax: this.data.tax,
+				isVAT:this.data.isVAT,
+				tax: Number(this.data.tax),
 				taxAmount: Number(this.data.taxAmount),
 				vendor: this.data.vendor,
 				description: this.data.description,
@@ -149,17 +156,16 @@ export class ExpenseReimburseRequestFormComponent implements OnInit {
 				NoOfDays:this.data.expNoOfDays,
 				NoOfDaysDate:[this.data.expStrtDate,this.data.expEndDate]
 			};
-			if (this.data.documents && this.data.documents.length > 0) {
+			/*if (this.data.documents && this.data.documents.length > 0) {
 				this.fileList = this.data.documents.map((document) => ({
 					...document,
 					name: document.actualFileName,
 				}));
-			}
+			}*/
 			this.form.setValue(formData);
 		}
 
 		
-
 		this.form.controls['tax'].valueChanges.subscribe((data) => {
 			if (data !== 0 && this.form.controls['expenseReimbClaimAmount'].value) {
 				this.form.controls['taxAmount'].setValue(
@@ -190,7 +196,8 @@ export class ExpenseReimburseRequestFormComponent implements OnInit {
 				);
 			},
 		);
-
+		
+		this.form.controls['tax'].disable();
 		this.form.controls['taxAmount'].disable();
 
 		if (this.data) {
@@ -199,8 +206,25 @@ export class ExpenseReimburseRequestFormComponent implements OnInit {
 				this.expenseType = data.data
 			});
 			this.selectedValue=this.data.expenseTypeId;
+
+			if(this.data.tax>0){
+				this.isVAT=true;
+			}
 		}
 	}
+
+	getVATRate = (event) => {
+		if(event)
+		this.vatRateService.getVATRate().subscribe((response: any) => {
+			this.form.controls['tax'].setValue(response.data.vatPercentage);
+		});
+
+		if(!event){
+			this.form.controls['tax'].setValue(0);
+		}
+	}
+
+
 
 	selectexpenseCategories = (event) =>
 	{

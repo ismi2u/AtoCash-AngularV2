@@ -39,14 +39,16 @@
 		"role": " الدور الوظيفي",
 		"employmentType": "انواع التعيين",
 		"expenseType": "انواع المصروفات",
-		"expenseStatus": "حالة المصروفات",
 		"expenseCategory": "انواع المصاريف",
+		"expenseStatus": "حالة المصروفات",
+		"bank":"Bank Master",		
 		"cashAdvanceStatus": "المقدمات النقديه",
 		"myInbox": "صندوق الوارد",
 		"report": "التقارير",
 		"inbox": "صندوق الوارد",
 		"logout": "تسجيل خروج",
 		"action": "اجرائات",
+		"employees": "الموظفين",
 		"travelRequest": "طلب سفر",
 		"expenseReimburse": "التعويض النقدي",
 		"status": "انواع الحاله",
@@ -73,7 +75,8 @@
 		"pendingApproval": "موافقات قيد الانتظار",
         "pendingSettlement" : "تحويلات قيد الانتظار",
 		"expenseReimburseDepartment": "Expense Reimburse Department",
-		"expenseReimburseBusiness": "Expense Reimburse Business"
+		"expenseReimburseBusiness": "Expense Reimburse Business",
+		"vatRate":"VAT Rate"
 	},
 	"form": {
 		"disburse": {
@@ -89,6 +92,8 @@
 			"expensefor": "تكلفه تخص",
 			"expenseReimburseAmount": "قيمة التعويض النقدي",
 			"enableProject": "تفعيل مشروع",
+			"enabledepartment": "Enable Department",
+      		"enablestore": "Enable Business",
 			"project": "المشروع",
 			"expense": "تكلفه",
 			"subProject": "المشروع الفرعي",
@@ -104,11 +109,12 @@
 			"employee": " الموظف",
 			"location": "المكان",
 			"department": "اداره",
-			"businessArea":"جهة العمل",
-			"taxNo":"الرقم الضريبي",
+			"taxNo": "الرقم الضريبي",
 			"NoOfDays":"عدد الايام",
 			"StartDate":"تاريخ البدء",
-			"EndDate":"تاريخ الانتهاء"		 
+			"EndDate":"تاريخ الانتهاء",
+			"businessArea":"جهة العمل",
+			"isVAT": "Is VAT"					 
 		},
 		"status": {
 			"status": "الحاله"
@@ -125,12 +131,12 @@
 		},
 		"travel": {
 			"startDate": "تاريخ البدء",
-      "endDate": "تاريخ الانتهاء",
-      "travelPurpose": "غرض السفر",
-      "enableProject": "تفعيل مشروع",
-      "project": "المشروع",
-      "subProject": "المشروع الفرعي",
-      "task": "المهمه",
+			"endDate": "تاريخ الانتهاء",
+			"travelPurpose": "غرض السفر",
+			"enableProject": "تفعيل مشروع",
+			"project": "المشروع",
+			"subProject": "المشروع الفرعي",
+			"task": "المهمه",
 			"currency": "العمله"
 		},
 		"login": {
@@ -153,8 +159,7 @@
 			"subProject": "المشروع الفرعي",
 			"taskName": "الاسم",
 			"taskDescription": "الوصف"
-		  },
-	  
+		  },	  
 		  "costCenter": {
 			"costCenterCode": "الرمز",
 			"costCenterDescription": "الوصف",
@@ -180,21 +185,35 @@
 		"role": {
 			"roleCode": "الرمز",
 			"roleName": "الاسم",
-			"maxAmount": "الحد الاقصي"
+			"maxAmount": "الحد الاقصي",
+			"isStoreRole": "Is Business Area Role"
 		},
 		"employmentType": {
 			"employmentTypeName": "الاسم",
 			"employmentTypeDescription": "الوصف"
 		  },
-		  "expenseType": {
-			"expenseTypeName": "الاسم",
-			"expenseTypeDescription": "الوصف"
-		  },
 		  "expenseCategory": {
 			"expenseCategoryName": "الاسم",
 			"expenseCategoryDesc": "الوصف",
-			"status": "الحاله"
+			"status": "الحاله",
+			"isBusinessCategory": "Is Business Category"
 		 },
+		  "expenseType": {
+			"expenseCategory": "انواع المصاريف",
+      		"generalLedger": "حساب المصروف",
+			"expenseTypeName": "الاسم",
+			"expenseTypeDescription": "الوصف"
+		  },
+		  "bank": {
+			"id":  "الرقم",
+			"bankName": "Bank Name",
+			"bankDesc":"الوصف",
+			"status": "الحاله"
+		  },
+		  "vatRate":{
+			"id":  "الرقم",
+			  "vatPercentage":"VAT Rate Percentage"
+		  },
 		  "approvalLevel": {
 			"level": "الدرجه",
 			"levelDescription": "الوصف"
@@ -225,7 +244,11 @@
 			"dob": "تاريخ الميلاد",
 			"approvalGroup": "فريق تسلسل الموافقات",
 			"role": "الدور الوظيفي",
+			"businessAreaApprovalGroup": "سلسلة موافقات جهة العمل ",
+			"businessAreaApprovalGroupP": "سلسلة موافقات جهة العمل ",
+			"businessAreaRoleName": "Business Area Role",
 			"employmentType": "نوع التعيين",
+			"businessArea": "جهات العمل",
 			"department": "الاداره",
 			"gender": "الجنس",
 			"email": "البريد الالكتروني",
@@ -234,10 +257,8 @@
 			"nationality": "الجنسيه",
 			"status": "الحاله",
 			"currency": "العمله",
-			"businessAreaApprovalGroup": "سلسلة موافقات جهة العمل ",
-			"businessAreaApprovalGroupP": "سلسلة موافقات جهة العمل ",
-			"businessAreaRoleName": "Business Area Role",
-			"businessArea": "جهات العمل"
+			"bankName": "Bank Name",
+      		"iban": "IBAN"			
 		},
 		"project": {
 			"projectName": "الاسم",
@@ -274,7 +295,8 @@
 			"department": "الاداره",
 			"project": "المشروع",
 			"claimAmount": "القيمه المطلوبه",
-			"status": "الحاله"
+			"status": "الحاله",
+			"businessArea": "جهات العمل"
 		},
 		"travel": {
 			"startDate": "تاريخ البدء",
@@ -327,13 +349,13 @@
 		},
 		"costCenter": {
 			"costCenterCode": "الرمز",
-      "costCenterDescription": "الوصف",
+      		"costCenterDescription": "الوصف",
 			"status": "الحاله"
 		},
 		"department": {
 			"departmentCode": "الرمز",
-      "departmentName": "الاسم",
-      "costCenter": "مركز التكلفه",
+      		"departmentName": "الاسم",
+      		"costCenter": "مركز التكلفه",
 			"status": "الحاله"
 		},
 		"businessArea": {
@@ -351,22 +373,32 @@
 		"role": {
 			"roleCode": "الرمز",
 			"roleName": "الاسم",
-			"maxAmount": "الحد الاقصي"
+			"maxAmount": "الحد الاقصي",
+			"isStoreRole": "Is Store Role"
 		  },
 		  "employmentType": {
 			"employmentTypeName": "الاسم",
 			"employmentTypeDescription": "الوصف"
 		  },
+		  "expenseCategory": {
+			  "expenseCategoryName": "الاسم",
+			  "expenseCategoryDesc": "الوصف",
+			  "status": "الحاله"
+		  },
 		  "expenseType": {
+			"expenseCategoryName": "انواع المصاريف",
+			"generalLedgerAccountNo": "رقم حساب المصروف",
+			"generalLedgerAccountName": "اسم حساب المصروف",
 			"expenseTypeName": "الاسم",
 			"expenseTypeDescription": "الوصف",
 			"status": "الحاله"
-		},
-		"expenseCategory": {
-			"expenseCategoryName": "الاسم",
-			"expenseCategoryDesc": "الوصف",
-			"status": "الحاله"
-		},
+		 },
+		 "bank": {
+		   "id": "Id",
+		   "bankName": "Bank Name",
+		   "bankDesc": "Description",
+		   "status": "Status"
+		 },
 		"approvalLevel": {
 			"level": "الدرجه",
 			"levelDescription": "الوصف"
@@ -436,15 +468,15 @@
 	"button": {
 		"next":"التالي",
 		"create": "انشاء",
-    "update": "تحديث بيانات",
-    "back": "الرجوع",
-    "assign": "تكليف",
-    "delete": "ازاله",
-    "cancel": "الغاء",
-    "approve": "موافقه",
-	"remove": "ازاله",
-    "reject": "رفض",
-    "login": "تسجيل دخول",
+		"update": "تحديث بيانات",
+		"back": "الرجوع",
+		"assign": "تكليف",
+		"delete": "ازاله",
+		"cancel": "الغاء",
+		"approve": "موافقه",
+		"remove": "ازاله",
+		"reject": "رفض",
+		"login": "تسجيل دخول",
 		"addNew": "اضافة جديد",
 		"add": "اضافه",
 		"submit": "ارسال",
@@ -472,11 +504,11 @@
 	},
 	"notification": {
 		"notification": "اشعار",
-    "addRequest": "! تم اضافة البيانات بنجاح",
-    "updateRequest": "! تم تعديل البيانات بنجاح",
-    "deleteRequest": "! تم الغاء البيانات بنجاح",
-    "noRequestSelected": "! لم يتم اختيار طلب",
-	"noRecordsToDownload": "!لا يوجد بيانات للتحميل"
+		"addRequest": "! تم اضافة البيانات بنجاح",
+		"updateRequest": "! تم تعديل البيانات بنجاح",
+		"deleteRequest": "! تم الغاء البيانات بنجاح",
+		"noRequestSelected": "! لم يتم اختيار طلب",
+		"noRecordsToDownload": "!لا يوجد بيانات للتحميل"
 	},
 	"alert": {
 		"approve": "تأكيد الموافقه؟",

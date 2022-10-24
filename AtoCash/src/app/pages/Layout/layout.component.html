@@ -42,7 +42,7 @@
 			</li>
 
 			<li *ngIf="canOrganize() || canOrganizeAndManage()" nz-menu-item nzMatchRouter routerLink="/businessarea">
-				<i nz-icon nzType="apartment" nzTheme="outline"></i>
+				<i nz-icon nzType="shop" nzTheme="outline"></i>
 				<span>{{ 'heading.businessArea' | translate }}</span>
 			</li>
 			
@@ -82,8 +82,18 @@
 				nzMatchRouter
 				routerLink="/bank"
 			>
-				<i nz-icon nzType="calculator" nzTheme="outline"></i>
+				<i nz-icon nzType="bank" nzTheme="outline"></i>
 				<span>{{ 'heading.bank' | translate }}</span>
+			</li>
+
+			<li
+				*ngIf="canOrganize() || canOrganizeAndManage()"
+				nz-menu-item
+				nzMatchRouter
+				routerLink="/vat-rate"
+			>
+				<i nz-icon nzType="file-text" nzTheme="outline"></i>
+				<span>{{ 'heading.vatRate' | translate }}</span>
 			</li>
 
 			<li
@@ -259,6 +269,8 @@
 						{{ 'heading.inbox' | translate }}
 						<nz-badge nzSize="small" nzShowZero [nzStyle]="{ backgroundColor: '#1890ff' }" [nzOverflowCount]="9" [nzCount]="requestService.inbox.length" [nzOffset]="[5, 5]"></nz-badge>
 					</li>
+
+					
 					<li *ngIf="!canOrganize()" nz-menu-item nzMatchRouter routerLink="/reports">
 						<i nz-icon nzType="file-done"></i>
 						{{ 'heading.report' | translate }}

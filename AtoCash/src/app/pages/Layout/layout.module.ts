@@ -12,7 +12,7 @@ import { LoginRoutingModule } from './layout-routing.module';
   declarations: [LayoutComponent],
   imports: [
     CommonModule,
- LoginRoutingModule,
+    LoginRoutingModule,
     SharedModule,
     AntdModule
  
