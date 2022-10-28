@@ -216,7 +216,7 @@ export class EmployeeFormComponent implements OnInit {
 			businessAreaApprovalGroup:[null,[]],
 			businessAreaRoleId:[null,[]],
 			businessAreaRoleName:[null,[]],
-			businessAreaId:[null,[]],
+			businessAreaId:[null,[Validators.required]],
 			statusTypeId: [null, [Validators.required]],
 			currencyTypeId: [null, [Validators.required]],
 		});

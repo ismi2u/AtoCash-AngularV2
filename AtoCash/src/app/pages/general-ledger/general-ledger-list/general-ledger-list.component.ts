@@ -35,8 +35,8 @@ export class GeneralLedgerListComponent implements OnInit {
 
 	deleteRecord = (event) => {
 		this.commonService.loading.next(true);
-		this.generalLedger.deleteGeneralLedger(event.id).subscribe(() => {
-			this.generalLedger.getGeneralLedger();
+		this.generalLedgerService.deleteGeneralLedger(event.id).subscribe(() => {
+			this.generalLedgerService.getGeneralLedger();
 			this.commonService.loading.next(false);
 		});
 	};

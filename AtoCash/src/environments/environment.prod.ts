@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  //baseUrl: 'atocashdev.tk'
-  baseUrl: 'atocashdev.ml'
+  //baseUrl: 'atocash.com'
+  baseUrl: 'atocashuat.tk'
 };
