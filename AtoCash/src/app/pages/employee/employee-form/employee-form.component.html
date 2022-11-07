@@ -11,25 +11,24 @@
 			<nz-form-label [nzSpan]="7" nzRequired nzFor="firstName">{{
 			  "form.employee.firstName" | translate
 			}}</nz-form-label>
-
-			<nz-form-control [nzSpan]="15" [nzErrorTip]="firstNameErrorTpl">
-			  <input
-				formControlName="firstName"
-				type="text"
-				nz-input
-				[placeholder]="'form.employee.firstName' | translate"
-				appCapitalize
-				id="firstName"
-			  />
-			  <ng-template #firstNameErrorTpl let-control>
-				<ng-container *ngIf="control.hasError('required')"
-				  >{{'validation.required' |translate }}</ng-container
-				>
-				<ng-container *ngIf="control.hasError('pattern')"
-				  >{{'validation.onlyAlphabets' |translate }}</ng-container
-				>
-			  </ng-template>
-			</nz-form-control>
+        <nz-form-control [nzSpan]="15" [nzErrorTip]="firstNameErrorTpl">
+          <input
+          formControlName="firstName"
+          type="text"
+          nz-input
+          [placeholder]="'form.employee.firstName' | translate"
+          appCapitalize
+          id="firstName"
+          />
+          <ng-template #firstNameErrorTpl let-control>
+          <ng-container *ngIf="control.hasError('required')"
+            >{{'validation.required' |translate }}</ng-container
+          >
+          <ng-container *ngIf="control.hasError('pattern')"
+            >{{'validation.onlyAlphabets' |translate }}</ng-container
+          >
+          </ng-template>
+        </nz-form-control>
 		  </nz-form-item>
 
       <nz-form-item>
@@ -123,7 +122,7 @@
           "form.employee.iban" | translate
         }}</nz-form-label>
 
-        <nz-form-control [nzSpan]="15" [nzErrorTip]="bankErrorTpl">
+        <nz-form-control [nzSpan]="15">
           <input
             id="iban"
             formControlName="iban"
@@ -134,7 +133,6 @@
         </nz-form-control>
       </nz-form-item>
 
-      
       <nz-form-item>
         <nz-form-label [nzSpan]="7" nzRequired nzFor="bankAccount">{{
           "form.employee.bankAccount" | translate
@@ -194,7 +192,7 @@
       </nz-form-item>
 
       <nz-form-item>
-        <nz-form-label [nzSpan]="7" nzRequired nzFor="nationalId">{{
+        <nz-form-label [nzSpan]="7" nzFor="nationalId">{{
           "form.employee.nationalId" | translate
         }}</nz-form-label>
 
@@ -316,12 +314,10 @@
         </nz-form-control>
       </nz-form-item>
 
-     
       <nz-form-item>
         <nz-form-label [nzSpan]="7" nzRequired nzFor="dob">{{
           "form.employee.dob" | translate
         }}</nz-form-label>
-
         <nz-form-control [nzSpan]="15" [nzErrorTip]="'validation.required' |translate ">
           <nz-date-picker
             id="dob"
@@ -387,29 +383,7 @@
           </nz-select>
         </nz-form-control>
       </nz-form-item>
-  
-      <nz-form-item>
-        <nz-form-label [nzSpan]="7" nzRequired nzFor="businessAreaId">{{
-          "form.employee.businessArea" | translate
-        }}</nz-form-label>
-      
-        <nz-form-control [nzSpan]="15" [nzErrorTip]="'validation.required' |translate ">
-          <nz-select
-          nzShowSearch
-          nzAllowClear
-          id="businessAreaId"
-          formControlName="businessAreaId"
-          [nzPlaceHolder]="'form.employee.businessArea' | translate"
-          >
-          <nz-option
-            *ngFor="let option of businessAreas"
-            [nzValue]="option.id"
-            [nzLabel]="option.businessAreaName"
-          ></nz-option>
-          </nz-select>
-        </nz-form-control>
-      </nz-form-item>
-      
+
       <nz-form-item>
         <nz-form-label [nzSpan]="7" nzRequired nzFor="approvalGroup">{{
           "form.employee.approvalGroup" | translate
@@ -454,116 +428,139 @@
         </nz-form-control>
       </nz-form-item>
 
-    <nz-form-item>
-      <nz-form-label [nzSpan]="7" nzFor="businessAreaApprovalGroupId">{{
-        "form.employee.businessAreaApprovalGroup" | translate
-      }}</nz-form-label>
-
-      <nz-form-control [nzSpan]="15" [nzErrorTip]="'validation.required' |translate">
-        <nz-select
+      <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzFor="businessAreaId">{{
+          "form.employee.businessArea" | translate
+        }}</nz-form-label>
+      
+        <nz-form-control [nzSpan]="15" [nzErrorTip]="'validation.required' |translate ">
+          <nz-select
           nzShowSearch
           nzAllowClear
-          id="businessAreaApprovalGroupId"
-          formControlName="businessAreaApprovalGroupId"
-          [nzPlaceHolder]="'form.employee.businessAreaApprovalGroupP' | translate"
-        >
+          id="businessAreaId"
+          formControlName="businessAreaId"
+          [nzPlaceHolder]="'form.employee.businessArea' | translate"
+          >
           <nz-option
-            *ngFor="let option of groups"
+            *ngFor="let option of businessAreas"
             [nzValue]="option.id"
-            [nzLabel]="option.approvalGroupCode"
+            [nzLabel]="option.businessAreaName"
           ></nz-option>
-        </nz-select>
-      </nz-form-control>
-    </nz-form-item>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
+      
+      <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzFor="businessAreaApprovalGroupId">{{
+          "form.employee.businessAreaApprovalGroup" | translate
+        }}</nz-form-label>
+  
+        <nz-form-control [nzSpan]="15" [nzErrorTip]="'validation.required' |translate">
+          <nz-select
+            nzShowSearch
+            nzAllowClear
+            id="businessAreaApprovalGroupId"
+            formControlName="businessAreaApprovalGroupId"
+            [nzPlaceHolder]="'form.employee.businessAreaApprovalGroupP' | translate"
+          >
+            <nz-option
+              *ngFor="let option of groups"
+              [nzValue]="option.id"
+              [nzLabel]="option.approvalGroupCode"
+            ></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
 
-    <nz-form-item>
-      <nz-form-label [nzSpan]="7" nzFor="businessAreaRoleId">{{
-        "form.employee.businessAreaRoleName" | translate
-      }}</nz-form-label>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzFor="businessAreaRoleId">{{
+          "form.employee.businessAreaRoleName" | translate
+        }}</nz-form-label>
+  
+        <nz-form-control [nzSpan]="15" [nzErrorTip]="'validation.required' |translate ">
+          <nz-select
+            nzShowSearch
+            nzAllowClear
+            id="businessAreaRoleId"
+            formControlName="businessAreaRoleId"
+            [nzPlaceHolder]="'form.employee.businessAreaRoleName' | translate"
+          >
+            <nz-option
+              *ngFor="let option of BAroles"
+              [nzValue]="option.id"
+              [nzLabel]="option.roleCode"
+            ></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
 
-      <nz-form-control [nzSpan]="15" [nzErrorTip]="'validation.required' |translate ">
-        <nz-select
-          nzShowSearch
-          nzAllowClear
-          id="businessAreaRoleId"
-          formControlName="businessAreaRoleId"
-          [nzPlaceHolder]="'form.employee.businessAreaRoleName' | translate"
-        >
-          <nz-option
-            *ngFor="let option of BAroles"
-            [nzValue]="option.id"
-            [nzLabel]="option.roleCode"
-          ></nz-option>
-        </nz-select>
-      </nz-form-control>
-    </nz-form-item>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzRequired nzFor="employmentType">{{
+          "form.employee.employmentType" | translate
+        }}</nz-form-label>
+  
+        <nz-form-control [nzSpan]="15" [nzErrorTip]="'validation.required' |translate">
+          <nz-select
+            nzShowSearch
+            nzAllowClear
+            id="employmentType"
+            formControlName="employmentTypeId"
+            [nzPlaceHolder]="'form.employee.employmentType' | translate"
+          >
+            <nz-option
+              *ngFor="let option of employeeTypes"
+              [nzValue]="option.id"
+              [nzLabel]="option.empJobTypeCode"
+            ></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
 
-    <nz-form-item>
-      <nz-form-label [nzSpan]="7" nzRequired nzFor="employmentType">{{
-        "form.employee.employmentType" | translate
-      }}</nz-form-label>
+      <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzRequired nzFor="currencyTypeId">{{
+          "form.employee.currency" | translate
+        }}</nz-form-label>
+  
+        <nz-form-control [nzSpan]="15" [nzErrorTip]="'validation.required' |translate ">
+          <nz-select
+            nzShowSearch
+            nzAllowClear
+            id="currencyTypeId"
+            formControlName="currencyTypeId"
+            [nzPlaceHolder]="'form.employee.currency' | translate"
+          >
+            <nz-option *ngFor="let option of currencies" [nzValue]="option.id" [nzLabel]="option.currencyCode"></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
 
-      <nz-form-control [nzSpan]="15" [nzErrorTip]="'validation.required' |translate">
-        <nz-select
-          nzShowSearch
-          nzAllowClear
-          id="employmentType"
-          formControlName="employmentTypeId"
-          [nzPlaceHolder]="'form.employee.employmentType' | translate"
-        >
-          <nz-option
-            *ngFor="let option of employeeTypes"
-            [nzValue]="option.id"
-            [nzLabel]="option.empJobTypeCode"
-          ></nz-option>
-        </nz-select>
-      </nz-form-control>
-    </nz-form-item>
-    
-    
+      <nz-form-item>
+        <nz-form-label [nzSpan]="7" nzRequired nzFor="status">{{
+          "form.employee.status" | translate
+        }}</nz-form-label>
+  
+        <nz-form-control [nzSpan]="15" [nzErrorTip]="'validation.required' |translate ">
+          <nz-select
+            nzShowSearch
+            nzAllowClear
+            id="status"
+            formControlName="statusTypeId"
+            [nzPlaceHolder]="'form.employee.status' | translate"
+          >
+            <nz-option *ngFor="let option of status" [nzValue]="option.id" [nzLabel]="option.status"></nz-option>
+          </nz-select>
+        </nz-form-control>
+      </nz-form-item>
 
-    <nz-form-item>
-      <nz-form-label [nzSpan]="7" nzRequired nzFor="currencyTypeId">{{
-        "form.employee.currency" | translate
-      }}</nz-form-label>
+      <nz-form-item>
+        <nz-form-control class="action-control">
+          <button nz-button nzType="primary" [disabled]="!form.valid">
+            {{ getButtonLabel() }}
+          </button>
+        </nz-form-control>
+      </nz-form-item>
 
-      <nz-form-control [nzSpan]="15" [nzErrorTip]="'validation.required' |translate ">
-        <nz-select
-          nzShowSearch
-          nzAllowClear
-          id="currencyTypeId"
-          formControlName="currencyTypeId"
-          [nzPlaceHolder]="'form.employee.currency' | translate"
-        >
-          <nz-option *ngFor="let option of currencies" [nzValue]="option.id" [nzLabel]="option.currencyCode"></nz-option>
-        </nz-select>
-      </nz-form-control>
-    </nz-form-item>
-    <nz-form-item>
-      <nz-form-label [nzSpan]="7" nzRequired nzFor="status">{{
-        "form.employee.status" | translate
-      }}</nz-form-label>
-
-      <nz-form-control [nzSpan]="15" [nzErrorTip]="'validation.required' |translate ">
-        <nz-select
-          nzShowSearch
-          nzAllowClear
-          id="status"
-          formControlName="statusTypeId"
-          [nzPlaceHolder]="'form.employee.status' | translate"
-        >
-          <nz-option *ngFor="let option of status" [nzValue]="option.id" [nzLabel]="option.status"></nz-option>
-        </nz-select>
-      </nz-form-control>
-    </nz-form-item>
-    <nz-form-item>
-      <nz-form-control class="action-control">
-        <button nz-button nzType="primary" [disabled]="!form.valid">
-          {{ getButtonLabel() }}
-        </button>
-      </nz-form-control>
-    </nz-form-item>
-
+      
   </form>
   <ng-template #action>
     <button nz-button routerLink="/employee" nzType="primary">
