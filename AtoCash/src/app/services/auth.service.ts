@@ -24,10 +24,15 @@ export class AuthService {
 		let domain = email.split('@')[1];
 		
 		//console.log('1=='+domain);
-		if(domain=="foodunitco.com" || domain=="foodunitco1.com" || domain=="gmail.com")
-		{
-			domain="foodunitcoserver"
-		}
+		if(domain=="foodunitco.com" || domain=="signsa.com" || domain=="foodunitco.onmicrosoft.com"
+|| domain=="2eat.com.sa" || domain=="2eat.sa" || domain=="alzadalyawmi.com"
+|| domain=="estilo.sa" || domain=="foodunit.uk" || domain=="dhyoof.com"
+|| domain=="janburger.com" || domain=="luluatnajd.com" || domain=="shawarma-plus.com"
+|| domain=="shawarmaplus.sa" || domain=="signsa.com" || domain=="tameesa.com"
+|| domain=="tameesa.com.sa" || domain=="thouq.sa" || domain=="tameesa.com")
+{
+domain="fwserver"
+}
 		//console.log('2=='+domain);
 
 		domain =  environment.baseUrl.includes('localhost') ? 'https://' : `https://${domain.split('.')[0]}.`;
