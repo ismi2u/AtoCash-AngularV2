@@ -86,9 +86,10 @@ export class ExpenseReimburseRequestInitComponent implements OnInit {
 			expensefor: [null]
 		});
 
-		this.form.controls['currencyTypeId'].disable();
+		
 		this.form.controls['currencyTypeId'].setValue(this.commonService.getUser().currencyId)
-
+		this.form.controls['currencyTypeId'].disable();
+		
 		if (this.data) {
 			delete this.data.employeeId;
 			this.form.setValue(this.data);
@@ -132,7 +133,7 @@ export class ExpenseReimburseRequestInitComponent implements OnInit {
 
 	refreshForm = (event) => {
 		 
-        if(event=='project')
+        if(event=='Project')
 		{
 			this.projectService.getProjectListByEmpId().subscribe((response: any) => {
 				this.projects = response.data;
