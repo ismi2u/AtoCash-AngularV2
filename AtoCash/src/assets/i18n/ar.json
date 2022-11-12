@@ -41,7 +41,7 @@
 		"expenseType": "انواع المصروفات",
 		"expenseCategory": "انواع المصاريف",
 		"expenseStatus": "حالة المصروفات",
-		"bank":"Bank Master",		
+		"bank":"صفحة البنوك الرئيسيه",		
 		"cashAdvanceStatus": "المقدمات النقديه",
 		"myInbox": "صندوق الوارد",
 		"report": "التقارير",
@@ -74,9 +74,9 @@
 		"settlementTo": "الي",
 		"pendingApproval": "موافقات قيد الانتظار",
         "pendingSettlement" : "تحويلات قيد الانتظار",
-		"expenseReimburseDepartment": "Expense Reimburse Department",
-		"expenseReimburseBusiness": "Expense Reimburse Business",
-		"vatRate":"VAT Rate"
+		"expenseReimburseDepartment": "التعويض النقدي للاداره",
+		"expenseReimburseBusiness": "التعويض النقدي للمتجر",
+		"vatRate":"قيمة ضريبة القيمه المضافه"
 	},
 	"form": {
 		"disburse": {
@@ -92,8 +92,8 @@
 			"expensefor": "تكلفه تخص",
 			"expenseReimburseAmount": "قيمة التعويض النقدي",
 			"enableProject": "تفعيل مشروع",
-			"enabledepartment": "Enable Department",
-      		"enablestore": "Enable Business",
+			"enabledepartment": "تفعيل الاداره",
+      		"enablestore": "تفعيل المتجر",
 			"project": "المشروع",
 			"expense": "تكلفه",
 			"subProject": "المشروع الفرعي",
@@ -114,7 +114,7 @@
 			"StartDate":"تاريخ البدء",
 			"EndDate":"تاريخ الانتهاء",
 			"businessArea":"جهة العمل",
-			"isVAT": "Is VAT"					 
+			"isVAT":"ضريبة القيمه المضافه"				 
 		},
 		"status": {
 			"status": "الحاله"
@@ -186,7 +186,7 @@
 			"roleCode": "الرمز",
 			"roleName": "الاسم",
 			"maxAmount": "الحد الاقصي",
-			"isStoreRole": "Is Business Area Role"
+			"isStoreRole": "دور وظيفي تابع لمتجر"
 		},
 		"employmentType": {
 			"employmentTypeName": "الاسم",
@@ -196,7 +196,7 @@
 			"expenseCategoryName": "الاسم",
 			"expenseCategoryDesc": "الوصف",
 			"status": "الحاله",
-			"isBusinessCategory": "Is Business Category"
+			"isBusinessCategory": "فئة المتاجر"
 		 },
 		  "expenseType": {
 			"expenseCategory": "انواع المصاريف",
@@ -206,13 +206,13 @@
 		  },
 		  "bank": {
 			"id":  "الرقم",
-			"bankName": "Bank Name",
+			"bankName": "اسم البنك",
 			"bankDesc":"الوصف",
 			"status": "الحاله"
 		  },
 		  "vatRate":{
 			"id":  "الرقم",
-			  "vatPercentage":"VAT Rate Percentage"
+			  "vatPercentage":"نسبة ضريبة القيمه المضافه"
 		  },
 		  "approvalLevel": {
 			"level": "الدرجه",
@@ -246,7 +246,7 @@
 			"role": "الدور الوظيفي",
 			"businessAreaApprovalGroup": "سلسلة موافقات جهة العمل ",
 			"businessAreaApprovalGroupP": "سلسلة موافقات جهة العمل ",
-			"businessAreaRoleName": "Business Area Role",
+			"businessAreaRoleName": "دور وظيفي تابع لمتجر",
 			"employmentType": "نوع التعيين",
 			"businessArea": "جهات العمل",
 			"department": "الاداره",
@@ -257,7 +257,7 @@
 			"nationality": "الجنسيه",
 			"status": "الحاله",
 			"currency": "العمله",
-			"bankName": "Bank Name",
+			"bankName": "اسم البنك",
       		"iban": "IBAN"			
 		},
 		"project": {
@@ -394,10 +394,10 @@
 			"status": "الحاله"
 		 },
 		 "bank": {
-		   "id": "Id",
-		   "bankName": "Bank Name",
-		   "bankDesc": "Description",
-		   "status": "Status"
+		   "id": "رقم الطلب",
+		   "bankName": "اسم البنك",
+		   "bankDesc": "الوصف",
+		   "status": "الحاله"
 		 },
 		"approvalLevel": {
 			"level": "الدرجه",
